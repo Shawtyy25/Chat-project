@@ -3,6 +3,7 @@
 :root{
     --login-box: rgb(29, 29, 29);
     --login-button: rgb(50, 62, 68);
+    --text-color: rgb(177, 177, 177);
 }
 *{
     box-sizing: border-box;
@@ -12,6 +13,12 @@
 
 body{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+}
+.main-content {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
 }
 /*  LOGIN  */
 .login{
@@ -21,16 +28,21 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 .login .textContent{
-
+display: flex;
+flex-direction: column;
+color: var(--text-color);
 }
 .login .textContent input{
-
+    padding: 0.75rem;
 }
 .login .textContent h2{
-    color: #3d3d3d;
     text-align: center;
+}
+.login .textContent h5{
+    color: var(--text-color);
 }
 .login .button{
     display: flex;
@@ -41,30 +53,28 @@ body{
 }
 .login .button a{
 
-    background: #272727;
-    color: rgb(0, 0, 0);
+    background: #4a6feb;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     text-transform: uppercase;
     font-size: 400;
     letter-spacing: 0.1rem;
     font-weight:400;
-    padding: 10px 30px;
     transition: 0.1s;
     border-radius: 5px;
     position: relative;
+    width: 15rem;
+    display: flex;
 }
 .login a:hover{
-   background: hsla(0, 0%, 99%, 0.658);
+   background: #4a6feb;
     box-shadow: 0 0 35px var(--login-button);
     
-}
-.login a::before{
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: #3d3d3d;
 }
 .login a span{
     position: relative;
     z-index: 1;
+    padding: 0.75rem;
+    margin: 0 auto;
+
 }
