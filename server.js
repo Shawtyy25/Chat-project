@@ -9,8 +9,6 @@ const io = new Server(server)
 app.use(express.static('base'))
 
 
-
-
 const PORT = process.env.PORT || 3300
 server.listen(PORT, () => {
     console.log(`A szerver fut a http://localhost:${PORT} címen`);
