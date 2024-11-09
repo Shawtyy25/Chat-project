@@ -1,7 +1,70 @@
 @import url(/base/variables/variables.css);
 
+:root{
+    --login-box: rgb(29, 29, 29);
+    --login-button: rgb(50, 62, 68);
+}
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*  LOGIN  */
+.login{
+    background-color:var(--login-box);
+    height: 400px;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login .textContent{
+
+}
+.login .textContent input{
+
+}
+.login .textContent h2{
+    color: #3d3d3d;
+    text-align: center;
+}
+.login .button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+    
+}
+.login .button a{
+
+    background: #272727;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 400;
+    letter-spacing: 0.1rem;
+    font-weight:400;
+    padding: 10px 30px;
+    transition: 0.1s;
+    border-radius: 5px;
+    position: relative;
+}
+.login a:hover{
+   background: hsla(0, 0%, 99%, 0.658);
+    box-shadow: 0 0 35px var(--login-button);
+    
+}
+.login a::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #3d3d3d;
+}
+.login a span{
+    position: relative;
+    z-index: 1;
 }

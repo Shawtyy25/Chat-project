@@ -1,4 +1,12 @@
+/*Login-Page színek*/
+:root{
+    --login-box: rgb(66, 66, 66);
+    --login-button: rgb(66, 113, 139);
+}
+
 *{margin: 0; padding: 0; box-sizing: border-box;}
+
+
 
 .active-bk{
     display: block;
@@ -11,3 +19,10 @@
 .hidden{
     display: none;
 }
+
+
+
+
+
+
+
