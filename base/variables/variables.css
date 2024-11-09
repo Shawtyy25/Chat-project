@@ -1,0 +1,13 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+.active-bk{
+    display: block;
+}
+
+.active-fx{
+    display: flex;
+}
+
+.hidden{
+    display: none;
+}
