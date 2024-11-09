@@ -1,7 +1,7 @@
 @import url(/base/variables/variables.css);
 
 :root{
-    --login-box: rgb(29, 29, 29);
+    --login-box: rgba(194, 192, 192, 0.8);
     --login-button: rgb(50, 62, 68);
     --text-color: rgb(177, 177, 177);
 }
@@ -21,6 +21,32 @@ body{
     -webkit-filter: blur(8px);
 }
 /*  LOGIN  */
+
+@keyframes background{
+    from{background-image: url(./img/freepik__expand__35130.png);}
+
+    to{background-image: url(./img/freepik__a-minimalist-abstract-background-with-soft-flowing__78860.jpeg);}
+}
+
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.wrapperDark{
+    background-image: url(./img/freepik__a-minimalist-abstract-background-with-soft-flowing__78860.jpeg);
+}
+.wrapperLight{
+    background-image: url(./img/freepik__expand__35130.png);
+}
 .login{
     background-color:var(--login-box);
     height: 400px;
@@ -29,7 +55,63 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 10;
+    flex-direction: column;
+    border-radius: 5px;
+    backdrop-filter:blur(10px);
 }
+/*  Theme  */
+
+.theme-selector{
+background: rgb(255, 255, 255);
+width:150px ;
+height: 50px;
+border-radius: 5px ;
+display: flex;
+justify-content: start;
+align-items: center;
+
+}
+.theme-selector a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    padding: 1rem;
+    transition: 1s;
+
+    
+}
+.theme-selector h5{
+    
+}
+
+
+
+
+
+@keyframes themeButtonForward {
+    0% { transform: translateX(0); }    
+    100% { transform: translateX(140%); } 
+}
+
+@keyframes themeButtonBackward {
+    0% { transform: translateX(140%); }    
+    100% { transform: translateX(0); } 
+}
+
+.animationForward {
+    animation-name: themeButtonForward;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animationBackward {
+    animation-name: themeButtonBackward;
+    animation-duration: 1s;
+}
+
+
+/*  Text */
 .login .textContent{
 display: flex;
 flex-direction: column;
@@ -78,3 +160,4 @@ color: var(--text-color);
     margin: 0 auto;
 
 }
+
