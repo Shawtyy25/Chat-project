@@ -1,3 +1,4 @@
+
 const socket = io()
 
 function start() {
@@ -29,5 +30,11 @@ function getResponse() {
     })
 }
 
-start()
-getResponse()
+
+
+function sendMessage() {
+    start()
+    getResponse()
+}
+
+export { sendMessage }

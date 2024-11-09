@@ -6,10 +6,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./app.js" defer></script>
-    <script src="./scripts/send-message.js" defer></script>
+    <script type="module" src="./app.js" defer></script>
 </head>
 <body>
-    
+    <main>
+        <div id="chat"></div>
+        <input type="text" name="" id="chatbox">
+        <button id="send-msg">
+            Send
+        </button>
+    </main>
 </body>
 </html>
