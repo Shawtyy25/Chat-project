@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.3",
+    "chat-project": "file:",
     "express": "^4.21.1",
     "socket.io": "^4.8.1"
   }
