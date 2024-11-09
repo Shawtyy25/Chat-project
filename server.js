@@ -16,11 +16,11 @@ app.post('/', (req, res) => {
 
     if (id == 'userdata') {
 
-        var user = {}
+        const user = {}
         user['name'] = req.body.username
         users.push(user)
 
-        res.send(users)
+        res.send([users, user])
     }
 })
 
@@ -28,11 +28,15 @@ app.post('/', (req, res) => {
 function messageEmitting() {
     io.on('connection', (socket) => {
         console.log('Csatlakozott egy felhasználó!');
-        
+
         socket.on('message', (msg) => {
-        io.emit('message', (msg))
-    })
-        
+            io.emit('message', (msg))
+        })
+
+        socket.on('newuser', (profile) => {
+            socket.broadcast.emit('appenduser', (profile))
+        })
+
         socket.on('disconnect', () => {
             console.log('Lecsatlakozott a felhasználó');
         })
