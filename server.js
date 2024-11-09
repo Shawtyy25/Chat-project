@@ -20,7 +20,7 @@ app.post('/', (req, res) => {
         user['name'] = req.body.username
         users.push(user)
 
-        res.send('SIKVIZ')
+        res.send(users)
     }
 })
 

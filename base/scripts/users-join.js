@@ -1,28 +1,21 @@
+export async function user() {
+    try{
+        const user = document.getElementById('user').value
 
-function start() {
-    dataFetch()
-}
+        const response = await fetch('/', {
+            method: 'POST',
+            headers:{
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({
+                requestType: 'userdata',
+                username: user
 
-function dataFetch() {
-    const user = document.getElementById('user').value
-    fetch('/', {
-        method: 'POST',
-        headers:{
-            'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify({
-            requestType: 'userdata',
-            username: user
-
+            })
         })
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log('szervertől kapott adat:', data);
-    }) 
-    .then(error => {
+        const data = await response.text()
+        return data
+    } catch(error) {
         console.error('Hiba történt!', error);
-    })
+    }
 }
-
-export { start }
