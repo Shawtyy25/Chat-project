@@ -21,10 +21,17 @@ function response(socket) {
 
 
 function appendUserToDiv(socket) {
+    const loginError = document.getElementById('login-error')
     const users = user()
+
     users.then(profile => {
-        socket.emit('newuser', profile[1]['name'])
-        main(profile);
+        if (profile === false ) {
+            loginError.style.display = 'block'
+        } else {
+            socket.emit('newuser', profile[1]['name'])
+            main(profile);
+        }
+        
     });
 
     response(socket);

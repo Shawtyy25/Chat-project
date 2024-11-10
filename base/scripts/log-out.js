@@ -4,7 +4,7 @@ function teszt(socket) {
     const own = document.getElementById('own')
     if (own.innerText) {
         
-        socket.emit('logout', own.innerText);
+        socket.emit('logout');
         
         socket.disconnect();
 
