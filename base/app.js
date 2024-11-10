@@ -10,7 +10,5 @@ login.addEventListener('click', () => {
         const socket = io()
         appendUserToDiv(socket)
         sendMessage(socket)
-    } else {
-        alert('Irjal valamit ')
     }
 })
