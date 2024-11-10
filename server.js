@@ -15,10 +15,13 @@ app.post('/', (req, res) => {
     const id = req.body.requestType
 
     if (id == 'userdata') {
-        const user = {}
+
+        res.send({type: true, data: req.body.username})
+        /* const user = {}
         user['name'] = req.body.username
 
         if (users.length == 0) {
+            user['socketID'] = null
             users.push(user)
             res.send([users, user])
         } else {
@@ -33,10 +36,11 @@ app.post('/', (req, res) => {
             }
 
             if (!userExists) {
+                user['socketID'] = null
                 users.push(user);
                 res.send([users, user]);
             }
-        }
+        } */
 
     }
 })
@@ -46,10 +50,32 @@ app.post('/', (req, res) => {
 io.on('connection', (socket) => {
 
     socket.on('newuser', (profile) => {
-        socket.userName = profile
-        console.log(`Felhasználó bejelentkezett: ${profile} (Socket ID: ${socket.id})`);
 
-        socket.broadcast.emit('appenduser', profile)
+        const user = {}
+        socket['user'] = profile
+        user['name'] = profile
+        user['socketID'] = socket.id
+        let userExists = false
+
+        if (users.length === 0) {
+            users.push(user)
+            console.log(users);
+        } else {
+            
+
+            for (let data of users) {
+                if (data['name'] === user['name']) {
+                    userExists = true // mi van ha egyezés van?
+                    break
+                }
+            }
+            if (!userExists) {
+                users.push(user)
+                console.log(users);
+            }
+        }
+
+        socket.broadcast.emit('appenduser', {users: users, data: userExists})
     })
 
     socket.on('message', (data) => {
@@ -58,9 +84,9 @@ io.on('connection', (socket) => {
 
 
     socket.on('logout', () => {
-        console.log(`Felhasználó kijelentkezett: ${socket.userName} (Socket ID: ${socket.id})`);
+        console.log(`Felhasználó kijelentkezett: ${socket} (Socket ID: ${socket.id})`);
         for (let i = 0; i < users.length; i++) {
-            if (users[i].profile === socket.userName) {
+            if (users[i].profile === socket['user']) {
                 users.splice(i, 1)
                 break
             }
@@ -69,10 +95,10 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
-        console.log(`Kliens lecsatlakozott: ${socket.id} (felhasználónév: ${socket.userName})`);
+        console.log(`Kliens lecsatlakozott: ${socket.id} (felhasználónév: ${socket['user']})`);
 
         for (let i = 0; i < users.length; i++) {
-            if (users[i].name === socket.userName) {
+            if (users[i].name === socket['user']) {
                 users.splice(i, 1);
                 break;
             }

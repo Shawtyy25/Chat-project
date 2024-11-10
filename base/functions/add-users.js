@@ -1,15 +1,21 @@
-export function addUsers(users) {
+export function addUsers(users, socket) {
     const usersDiv = document.getElementById('users')
     usersDiv.innerHTML = ''
     const own = document.createElement('p')
     own.id = 'own'
-    own.innerText = users.at(-1)['name']
-    usersDiv.appendChild(own)
+    users.forEach(user => {
+        if (user['socketID'] === socket.id) {
+            own.innerText = user['name']
+            usersDiv.appendChild(own)
+        }
+    })
 
-    for (let i = 0; i < users.length-1; i++) {
-        const username = document.createElement('p')
-        username.innerText = users[i]['name']
-        username.id = users[i]['name']
-        usersDiv.appendChild(username)
-    }
+    users.forEach(user => {
+        if (user['socketID'] !== socket.id) {
+            const username = document.createElement('p')
+            username.innerText = user['name']
+            usersDiv.appendChild(username)
+        }
+    });
+
 }

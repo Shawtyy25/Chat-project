@@ -1,19 +1,16 @@
 import { addUsers } from "../functions/add-users.js";
 import { user } from "./users-join.js";
 
-function main(user) {
-    addUsers(user[0])
+function main(user, socket) {
+    addUsers()
 }
 
 function response(socket) {
-    const usersDiv = document.getElementById('users')
-    usersDiv.innerHTML = ''
-
-    socket.on('appenduser', (profile) => {
-        const username = document.createElement('p')
-        username.innerText = profile 
-
-        usersDiv.appendChild(username)
+    socket.on('appenduser', (data) => {
+        if (!data.data) {
+            addUsers(data.users, socket)
+        }
+       
     })
 }
 
@@ -22,17 +19,23 @@ function response(socket) {
 
 function appendUserToDiv(socket) {
     const loginError = document.getElementById('login-error')
-    const users = user()
+    const valueFind = user()
 
-    users.then(profile => {
-        if (profile === false ) {
+    valueFind.then(value => {
+        if (value.type) {
+            socket.emit('newuser', value.data)
+        }
+        /* if (profile === false ) {
+            // ha a profil regisztrált már
             loginError.style.display = 'block'
         } else {
+            
             socket.emit('newuser', profile[1]['name'])
+            console.log(profile[1]['socketID']);
             main(profile);
         }
-        
-    });
+         */
+    }); // sajat kiiratas ---------------->
 
     response(socket);
 }
