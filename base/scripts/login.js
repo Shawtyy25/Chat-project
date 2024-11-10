@@ -1,19 +1,46 @@
-export function addClass(event) {
-    event.preventDefault();
-    const themeSelectorButton = document.querySelector('.theme-selector a');
-    const themeSelectorText = document.querySelector('.theme-selector a h5');
-    const wrapper = document.querySelector('.wrapper')
-    if (themeSelectorText.innerHTML === 'Dark') {
-        themeSelectorText.innerHTML = 'White';
-        wrapper.classList.remove('wrapperDark')
-        wrapper.classList.add('wrapperLight')
-        themeSelectorButton.classList.remove('animationForward');
-        themeSelectorButton.classList.add('animationBackward');
-    } else {
-        themeSelectorText.innerHTML = 'Dark';
-        wrapper.classList.remove('wrapperLight')
-        wrapper.classList.add('wrapperDark')
-        themeSelectorButton.classList.remove('animationBackward');
-        themeSelectorButton.classList.add('animationForward');
-    }
+export function Themes(){
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkBox = document.getElementById('darkmode-toggle');
+        const wrapper = document.querySelector('.wrapper');
+        const loginBox = document.querySelector('.login');
+        const textContent = document.querySelector('.textContent');
+        const button = document.querySelector('.button a');
+
+        let LightMode = true;
+    
+        if (checkBox.checked) {
+            LightMode = false;
+            applyDarkMode();
+        } else {
+            applyLightMode();
+        }
+    
+        checkBox.addEventListener('change', () => {
+            if (checkBox.checked) {
+                LightMode = false;
+                applyDarkMode();
+            } else {
+                LightMode = true;
+                applyLightMode();
+            }
+        });
+    
+        function applyLightMode() {
+            wrapper.classList.remove('wrapperDark');
+            wrapper.classList.add('wrapperLight');
+            loginBox.style.backgroundColor = 'var(--login-box-light)';
+            textContent.style.color = 'var(--text-color-light)';
+            button.style.backgroundColor = 'var(--button-bg-light)';
+        }
+    
+        function applyDarkMode() {
+            wrapper.classList.remove('wrapperLight');
+            wrapper.classList.add('wrapperDark');
+            loginBox.style.backgroundColor = 'var(--login-box-dark)';
+            textContent.style.color = 'var(--text-color-dark)';
+            button.style.backgroundColor = 'var(--button-bg-dark)';
+        }
+    });
+    
 }
+
