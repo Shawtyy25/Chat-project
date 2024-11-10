@@ -12,6 +12,9 @@
     --side-color-light: black;
 
     --side-img-scale: 4rem;
+
+    --channel-bg-dark: rgb(0,0,0);
+    --channel-bg-light: rgb(133, 133, 133);
 }
 
 .active-bk{
@@ -44,6 +47,14 @@
 .side-light{
     background: var(--side-bg-color-light);
     color: var(--side-color-light);
+}
+
+.channel-dark{
+    background: var(--channel-bg-dark);
+}
+
+.channel-light{
+    background: var(--channel-bg-light);
 }
 
 .container{

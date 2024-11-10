@@ -1,0 +1,29 @@
+.img-forwards{
+    animation-name: imgForwards;
+    animation-fill-mode: forwards;
+    animation-duration: .2s;
+}
+
+@keyframes imgForwards {
+    0%{
+        rotate: 0;
+    }
+    100%{
+        rotate: -90deg;
+    }
+}
+
+.img-backwards{
+    animation-name: imgBackwards;
+    animation-fill-mode: backwards;
+    animation-duration: .2s;
+}
+
+@keyframes imgBackwards {
+    0%{
+        rotate: -90deg;
+    }
+    100%{
+        rotate: 0;
+    }
+}

@@ -23,26 +23,33 @@ function handleAppearanceModeLight(container, colors){
 export function appearanceChecker(){
     const appearanceInput = document.querySelector("#appearance")
 
-    const container = document.querySelector(".content")
+    const middle = document.querySelector(".middle")
 
     const leftSide = document.querySelector(".left-side")
     const rightSide = document.querySelector(".right-side")
+    const introduction = document.querySelector(".introduction")
     
-    const themeItems = [ container ]
+    const themeItems = [ middle ]
     const themeColors = [ "dark-theme", "light-theme" ]
     handleAppearanceModeLight(themeItems, themeColors)
 
-    const sides = [leftSide, rightSide]
+    const sides = [ leftSide, rightSide, introduction ]
     const sidesColors = [ "side-dark", "side-light" ]
     handleAppearanceModeLight(sides, sidesColors)
+
+    const channelItems = document.querySelectorAll(".channel-info")
+    const channelColors = [ "channel-dark", "channel-light" ]
+    handleAppearanceModeLight(channelItems, channelColors)
 
     appearanceInput.addEventListener("change", () =>{
         if (appearanceInput.checked) {
            handleAppearanceModeDark(themeItems, themeColors)
            handleAppearanceModeDark(sides, sidesColors)
+           handleAppearanceModeDark(channelItems, channelColors)
         } else{
            handleAppearanceModeLight(themeItems, themeColors)
            handleAppearanceModeLight(sides, sidesColors)
+           handleAppearanceModeLight(channelItems, channelColors)
         }
     })
 }
