@@ -1,3 +1,4 @@
+import { addUsers } from "../functions/add-users.js";
 import { user } from "./users-join.js";
 
 function main(user) {
@@ -17,20 +18,7 @@ function response(socket) {
 }
 
 
-function addUsers(users) {
-    const usersDiv = document.getElementById('users')
-    usersDiv.innerHTML = ''
-    const own = document.createElement('p')
-    own.id = 'own'
-    own.innerText = users.at(-1)['name']
-    usersDiv.appendChild(own)
 
-    for (let i = 0; i < users.length-1; i++) {
-        const username = document.createElement('p')
-        username.innerText = users[i]['name']
-        usersDiv.appendChild(username)
-    }
-}
 
 function appendUserToDiv(socket) {
     const users = user()

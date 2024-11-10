@@ -6,6 +6,7 @@ const app = express()
 const server = http.createServer(app)
 const io = new Server(server)
 const bodyParser = require('body-parser')
+const { error } = require('console')
 
 app.use(express.static('base'))
 app.use(bodyParser.json())
@@ -25,26 +26,29 @@ app.post('/', (req, res) => {
 })
 
 
-function messageEmitting() {
-    io.on('connection', (socket) => {
-        console.log('Csatlakozott egy felhasználó!');
 
-        socket.on('message', (msg) => {
-            io.emit('message', (msg))
-        })
+io.on('connection', (socket) => {
 
-        socket.on('newuser', (profile) => {
-            socket.broadcast.emit('appenduser', (profile))
-        })
-
-        socket.on('disconnect', () => {
-            console.log('Lecsatlakozott a felhasználó');
-        })
+    socket.on('message', (msg) => {
+        io.emit('message', (msg))
     })
 
-}
+    socket.on('newuser', (profile) => {
+        socket.broadcast.emit('appenduser', (profile))
+    })
 
-messageEmitting()
+    socket.on('logout', (user) => {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i]['name'] === user) {
+                users.splice(i, 1)
+            }
+        }
+        socket.broadcast.emit('b-message', users)
+    })
+
+})
+
+
 
 
 const PORT = process.env.PORT || 3300
