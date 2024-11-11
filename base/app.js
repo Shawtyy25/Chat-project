@@ -1,4 +1,5 @@
 import { getValue } from "./scripts/get-login-value.js";
+import { runLogOut } from "./scripts/log-out.js";
 import { messageReceiver } from "./scripts/send-message.js";
 import { sendValue } from "./scripts/user-login.js";
 
@@ -16,5 +17,8 @@ login.addEventListener('click', () => {
         getValue(socket)
 
         messageReceiver(socket)
+
+        runLogOut(socket)
     }
 })
+

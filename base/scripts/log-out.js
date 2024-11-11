@@ -1,35 +1,40 @@
-import { addUsers } from "../functions/add-users.js";
+import { loggedOutUserOutput } from "../functions/logged-out-user.js"
 
-function teszt(socket) {
-    const own = document.getElementById('own')
-    if (own.innerText) {
-        
-        socket.emit('logout');
-        
-        socket.disconnect();
+function userLogOut(socket) {
+    const logout = document.getElementById('logout')
 
-        socket = null;
+    logout.addEventListener('click', (e) => {
+        e.preventDefault()
 
-        window.location.reload()
-    }
+        logoutEmit(socket)
+    })
 }
 
-function usersResponse(socket) {
-    if (socket && socket.connected) {
-        
-        socket.on('b-message', (data) => {
-            addUsers(data)
-        });
-    } else {
-        
-        socket.once('connect', () => {
-            socket.on('b-message', (data) => {
-                addUsers(data)
-            });
-        });
-    }
+function logoutEmit(socket) {
+    const own = document.querySelector('.own')
+    socket.emit('logout', {user: own.innerText})
+
+    window.location.reload()
+    socket.disconnect()
 }
 
+function userDelete(socket) {
+    socket.on('user-left', (lgUser) => {
+        /* loggedOutUserOutput(lgUser.user) */ // ha kell a kiírás
 
+        const users = document.getElementById('users')
+        
+        Array.from(users.children).forEach(user => {
+           if (user.innerText === lgUser.user) {
+                users.removeChild(user)
+           }
+        });
 
-export { teszt, usersResponse }
+    })
+}
+
+export function runLogOut(socket) {
+    userLogOut(socket)
+    userDelete(socket)
+
+}

@@ -1,11 +1,12 @@
 import { addUsers, addOwnUser } from "../functions/add-users.js"
+import { loggedInUserOutput } from "../functions/loggedIn-user.js"
 
 export function getValue(socket) {
     const users = document.getElementById('users')
     const loginError = document.getElementById('login-error')
-    
+
     socket.on('userJoined', (profiles) => {
-        
+
         if (!profiles.ifExist) {
             for (let data of profiles.users) {
                 if (data.id === profiles.ownSocket) {
@@ -21,32 +22,27 @@ export function getValue(socket) {
                 }
             }
         }
-        
+
     })
-    
+
     socket.on('userJoinedToAll', (profiles) => {
-        try{
-            const own = document.querySelector('.own')
-            Array.from(users.children).forEach(child => {
-                if (child !== own) {
-                    users.removeChild(child)
-                }
+        const own = document.querySelector('.own')
+        /* loggedInUserOutput(own.innerText) */ // ha kell a kiírás
 
-            });
-
-    
-            for (let data of profiles.users) {
-                if (data.user !== own.innerText.trim()) {
-                    addUsers(data)
-                }
+        Array.from(users.children).forEach(child => {
+            if (child !== own) {
+                users.removeChild(child)
             }
-            
-        } catch {
-            console.error('error');
-            
+
+        });
+
+
+        for (let data of profiles.users) {
+            if (data.user !== own.innerText.trim()) {
+                addUsers(data)
+            }
         }
-          
-        
+
     })
 }
 
