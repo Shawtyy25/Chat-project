@@ -7,10 +7,10 @@ export function getValue(socket) {
 
     socket.on('userJoined', (profiles) => {
 
-        if (!profiles.ifExist) {
+        if (!profiles.ifExist) { // vizsgálja hogy a megadott felhasználónév foglalt-e
             for (let data of profiles.users) {
                 if (data.id === profiles.ownSocket) {
-                    addOwnUser(profiles, data)
+                    addOwnUser(profiles, data) // hozzáadja a saját elemet
 
                 }
             }
@@ -18,7 +18,7 @@ export function getValue(socket) {
 
             for (let data of profiles.users) {
                 if (data.user !== own.innerText) {
-                    addUsers(data)
+                    addUsers(data) // hozzáadja a többi felhasználót kizárva az OWN itemet
                 }
             }
         }
@@ -29,7 +29,7 @@ export function getValue(socket) {
         const own = document.querySelector('.own')
         /* loggedInUserOutput(own.innerText) */ // ha kell a kiírás
 
-        Array.from(users.children).forEach(child => {
+        Array.from(users.children).forEach(child => { // azokat az elemeket törli ami nem OWN 
             if (child !== own) {
                 users.removeChild(child)
             }

@@ -12,21 +12,21 @@ function userLogOut(socket) {
 
 function logoutEmit(socket) {
     const own = document.querySelector('.own')
-    socket.emit('logout', {user: own.innerText})
+    socket.emit('logout', {user: own.innerText}) // küld egy csomagot a szervernek benne a kijelentkezett felhasználóval (amit az OWN elem miatt könnyedén lehet vizsgálni)
 
-    window.location.reload()
+    window.location.reload() //ujratolti az oldalt és lecsatlakoztatja a socket.io-ról a kijelentkezett klienst
     socket.disconnect()
 }
 
 function userDelete(socket) {
-    socket.on('user-left', (lgUser) => {
+    socket.on('user-left', (lgUser) => { // a többi kliens felé intézett parancs
         /* loggedOutUserOutput(lgUser.user) */ // ha kell a kiírás
 
         const users = document.getElementById('users')
         
         Array.from(users.children).forEach(user => {
-           if (user.innerText === lgUser.user) {
-                users.removeChild(user)
+           if (user.innerText === lgUser.user) { // vizsgálja hogy melyik mező a kijelentkezett felhasználó, és kitörli azt.
+                users.removeChild(user) 
            }
         });
 

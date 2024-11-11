@@ -14,7 +14,7 @@ function messageEmit(socket) {
     const own = document.querySelector('.own')
 
     if (chatbox.value) {
-        socket.emit('send-message', { sender: own.innerText, msg: chatbox.value })
+        socket.emit('send-message', { sender: own.innerText, msg: chatbox.value }) // küdljük a szervernek az üzenetet, az üzentettel és a hozzá tartozó felhasználóval
         chatbox.value = ''
     }
 }
@@ -24,9 +24,9 @@ function getMessage(socket) {
         const chat = document.getElementById('chat')
         const message = document.createElement('p')
 
-        message.innerText = `${data.sender}: ${data.msg}`
+        message.innerText = `${data.sender}: ${data.msg}` 
 
-        chat.appendChild(message)
+        chat.appendChild(message) // kliens oldalon megjelenik az üzenet
         window.scrollTo(0, document.body.scrollHeight)
     })
 }
