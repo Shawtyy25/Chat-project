@@ -1,4 +1,5 @@
 import { getValue } from "./scripts/get-login-value.js";
+import { sendMessage } from "./scripts/send-message.js";
 import { sendValue } from "./scripts/user-login.js";
 
 let socket;
@@ -12,7 +13,7 @@ login.addEventListener('click', () => {
         socket = io()
 
         sendValue(socket, user.value)
-        
         getValue(socket)
+        sendMessage(socket)
     }
 })

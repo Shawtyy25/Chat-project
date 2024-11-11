@@ -2,22 +2,16 @@ import { addUsers, addOwnUser } from "../functions/add-users.js"
 
 export function getValue(socket) {
     const users = document.getElementById('users')
+    const loginError = document.getElementById('login-error')
     
     socket.on('userJoined', (profiles) => {
         
-
-        const loginError = document.getElementById('login-error')
-        if (profiles.ifExist) {
-            loginError.style.display = 'block'
-        } else {
+        if (!profiles.ifExist) {
             for (let data of profiles.users) {
                 if (data.id === profiles.ownSocket) {
-                    console.log(data.user);
                     addOwnUser(profiles, data)
 
                 }
-                
-                
             }
             const own = document.querySelector('.own')
 

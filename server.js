@@ -10,11 +10,12 @@ const bodyParser = require('body-parser')
 app.use(express.static('base'))
 app.use(bodyParser.json())
 const users = []
-let userExists
+
 
 
 
 io.on('connection', (socket) => {
+    let userExists = false
 
     socket.on('newUserConnected', (loginUser) => {
         const user = {}
