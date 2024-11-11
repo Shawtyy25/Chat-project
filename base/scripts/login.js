@@ -3,7 +3,7 @@ export function Themes(){
         const checkBox = document.getElementById('darkmode-toggle');
         const wrapper = document.querySelector('.wrapper');
         const loginBox = document.querySelector('.login');
-        const textContent = document.querySelector('.textContent');
+        const textContent = document.querySelector('.LoginTextContent');
         const button = document.querySelector('.button a');
 
         let LightMode = true;

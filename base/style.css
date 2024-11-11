@@ -52,7 +52,7 @@ body {
 .login {
     background-color: var(--login-box-light);
     height: 400px;
-    width: 800px;
+    width: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,6 +60,7 @@ body {
     border-radius: 5px;
     backdrop-filter: blur(10px);
     transition: background-color 0.5s, color 0.5s;
+    row-gap: 2rem;
 }
 
 .wrapperDark .login {
@@ -73,8 +74,8 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    margin-top: -15rem;
-    margin-left:5rem ;
+    margin-top: -10rem;
+    left: 100px;
 }
 
 .theme-selector label {
@@ -145,47 +146,50 @@ label .moon{
 .theme-selector input:checked + label svg.moon{
     fill: rgb(255, 255, 255);
 }
+/* Error */
+.LoginTextContent .error{
+    color: red;
+    text-decoration: underline;
+}
+
+.LoginTextContent .inputError {
+    padding: 0.75rem;
+    margin-bottom: 20px;
+    border: 3px solid red;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
 
 /* Text */
 
-.textContent {
+.LoginTextContent {
     display: flex;
     flex-direction: column;
     color: var(--text-color-light);
 }
 
-.textContent input{
-   border: 3px solid red;
 
-}
 
-.textContent .error{
-    color: red;
-    text-decoration: underline;
-}
 
-.wrapperDark .textContent {
+.wrapperDark .LoginTextContent {
     color: var(--text-color-dark);
 }
 
-.textContent h2 {
+.LoginTextContent h2 {
     text-align: center;
 }
 
-.textContent h5 {
+.LoginTextContent h5 {
     margin-bottom: 10px;
 }
 
-.textContent input {
+.LoginTextContent input{
     padding: 0.75rem;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    outline: none;
     transition: border-color 0.3s;
-}
-.textContent label{
-    
 }
 
 .button {
@@ -195,7 +199,7 @@ label .moon{
     min-height: 10vh;
 }
 
-.button a {
+.LoginTextContent .button a {
     background: var(--button-bg-light);
     color: #fff;
     text-decoration: none;
@@ -214,7 +218,7 @@ label .moon{
     background: var(--button-bg-dark);
 }
 
-.button a:hover {
+.LoginTextContent .button a:hover {
     background: var(--button-hover-light);
     box-shadow: 0 0 35px var(--button-bg-light);
 }
@@ -223,7 +227,7 @@ label .moon{
     background: var(--button-hover-dark);
 }
 
-.button a span {
+.LoginTextContent .button a span {
     position: relative;
     z-index: 1;
     padding: 0.75rem;
