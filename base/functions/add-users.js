@@ -1,21 +1,21 @@
-export function addUsers(users, socket) {
-    const usersDiv = document.getElementById('users')
-    usersDiv.innerHTML = ''
-    const own = document.createElement('p')
-    own.id = 'own'
-    users.forEach(user => {
-        if (user['socketID'] === socket.id) {
-            own.innerText = user['name']
-            usersDiv.appendChild(own)
-        }
-    })
+function addOwnUser(profiles, data) {
+    const users = document.getElementById('users')
+    const ownUser = document.createElement('p')
+    ownUser.id = profiles.ownSocket
+    ownUser.classList.add('own')
+    ownUser.innerText = data.user
 
-    users.forEach(user => {
-        if (user['socketID'] !== socket.id) {
-            const username = document.createElement('p')
-            username.innerText = user['name']
-            usersDiv.appendChild(username)
-        }
-    });
+    users.appendChild(ownUser)
 
 }
+
+
+function addUsers(data) {
+    const users = document.getElementById('users')
+    const user = document.createElement('p')
+    user.innerText = data.user
+    users.appendChild(user)
+}
+
+
+export { addOwnUser, addUsers }

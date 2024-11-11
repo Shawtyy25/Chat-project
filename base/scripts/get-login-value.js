@@ -1,3 +1,5 @@
+import { addUsers, addOwnUser } from "../functions/add-users.js"
+
 export function getValue(socket) {
     const users = document.getElementById('users')
     
@@ -56,21 +58,3 @@ export function getValue(socket) {
 }
 
 
-function addOwnUser(profiles, data) {
-    const users = document.getElementById('users')
-    const ownUser = document.createElement('p')
-    ownUser.id = profiles.ownSocket
-    ownUser.classList.add('own')
-    ownUser.innerText = data.user
-
-    users.appendChild(ownUser)
-
-}
-
-
-function addUsers(data) {
-    const users = document.getElementById('users')
-    const user = document.createElement('p')
-    user.innerText = data.user
-    users.appendChild(user)
-}
