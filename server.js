@@ -55,6 +55,12 @@ io.on('connection', (socket) => {
         
     })
 
+
+    // user message sending
+    socket.on('send-message', (msgData) => {
+        io.emit('get-message', { sender: msgData.sender, msg: msgData.msg })
+    })
+
     
 
     /* socket.on('newuser', (profile) => {

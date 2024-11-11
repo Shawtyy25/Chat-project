@@ -37,7 +37,6 @@ export function getValue(socket) {
     
             for (let data of profiles.users) {
                 if (data.user !== own.innerText.trim()) {
-                    console.log(data);
                     addUsers(data)
                 }
             }

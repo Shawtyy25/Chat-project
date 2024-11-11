@@ -1,42 +1,38 @@
-
-function start(socket) {
+function sendMessage(socket) {
     const send = document.getElementById('send-msg')
 
     send.addEventListener('click', (e) => {
         e.preventDefault()
-        
-        messageEmit(socket) // Elküldi az üzenetet gombnyomásra
+
+        messageEmit(socket)
     })
+
 }
 
 function messageEmit(socket) {
     const chatbox = document.getElementById('chatbox')
-    const own = document.getElementById('own')
+    const own = document.querySelector('.own')
 
     if (chatbox.value) {
-        socket.emit('message', { text: chatbox.value, user: own.innerText})
+        socket.emit('send-message', { sender: own.innerText, msg: chatbox.value })
         chatbox.value = ''
     }
 }
 
-function getResponse(socket) {
-    socket.on('message', (data) => {
+function getMessage(socket) {
+    socket.on('get-message', (data) => {
         const chat = document.getElementById('chat')
-        const text = document.createElement('p')
+        const message = document.createElement('p')
 
-        text.innerText = `${data.user}: ${data.text}`
+        message.innerText = `${data.sender}: ${data.msg}`
 
-        chat.appendChild(text)
+        chat.appendChild(message)
         window.scrollTo(0, document.body.scrollHeight)
     })
 }
 
 
-
-function sendMessage(socket) {
-    
-    start(socket)
-    getResponse(socket)
+export function messageReceiver(socket) {
+    sendMessage(socket)
+    getMessage(socket)
 }
-
-export { sendMessage }
