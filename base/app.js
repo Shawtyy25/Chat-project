@@ -1,6 +1,5 @@
-import { sendMessage } from "./scripts/send-message.js";
-import { appendUserToDiv } from "./scripts/users-append.js";
-import { teszt, usersResponse } from "./scripts/log-out.js";
+import { getValue } from "./scripts/get-login-value.js";
+import { sendValue } from "./scripts/user-login.js";
 
 let socket;
 
@@ -10,23 +9,10 @@ const logout = document.getElementById('logout');
 
 login.addEventListener('click', () => {
     if (user.value) {
-        socket = io();  
-        
-        
-        socket.on('connect', () => {
-            appendUserToDiv(socket);  
-            sendMessage(socket);      
-            
-            usersResponse(socket);    
-        });
-        
-    }
-});
+        socket = io()
 
-logout.addEventListener('click', () => {
-    if (socket && socket.connected) {
-        usersResponse(socket);  
-        teszt(socket);          
+        sendValue(socket, user.value)
+        
+        getValue(socket)
     }
-});
-
+})

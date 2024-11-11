@@ -25,16 +25,6 @@ function appendUserToDiv(socket) {
         if (value.type) {
             socket.emit('newuser', value.data)
         }
-        /* if (profile === false ) {
-            // ha a profil regisztrált már
-            loginError.style.display = 'block'
-        } else {
-            
-            socket.emit('newuser', profile[1]['name'])
-            console.log(profile[1]['socketID']);
-            main(profile);
-        }
-         */
     }); // sajat kiiratas ---------------->
 
     response(socket);
