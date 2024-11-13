@@ -7,7 +7,8 @@ let socket;
 
 const login = document.getElementById('login');
 const user = document.getElementById('user');
-const logout = document.getElementById('logout');
+const users = document.getElementById('users')
+
 
 login.addEventListener('click', () => {
     if (user.value) {

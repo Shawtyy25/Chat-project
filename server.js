@@ -55,7 +55,7 @@ io.on('connection', (socket) => {
         }
 
         
-        
+
     })
 
 
@@ -78,7 +78,8 @@ io.on('connection', (socket) => {
     }) 
 
     socket.on('disconnect', () => {
-        if (socket.user !== undefined) {
+        
+        if (socket.user !== undefined && socket.user ) {
             console.log(`Kliens lecsatlakozott: ${socket.id} (felhasználónév: ${socket.user})`);
             for (let i = 0; i < users.length; i++) {
                 if (users[i].user === socket.user) {

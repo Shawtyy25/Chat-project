@@ -11,11 +11,18 @@ function userLogOut(socket) {
 }
 
 function logoutEmit(socket) {
-    const own = document.querySelector('.own')
-    socket.emit('logout', {user: own.innerText}) // küld egy csomagot a szervernek benne a kijelentkezett felhasználóval (amit az OWN elem miatt könnyedén lehet vizsgálni)
 
-    window.location.reload() //ujratolti az oldalt és lecsatlakoztatja a socket.io-ról a kijelentkezett klienst
-    socket.disconnect()
+    const own = document.querySelector('.own')
+    console.log(own.id);
+
+    if (own.id) {
+        socket.emit('logout', {user: own.innerText}) // küld egy csomagot a szervernek benne a kijelentkezett felhasználóval (amit az OWN elem miatt könnyedén lehet vizsgálni)
+
+        window.location.reload() //ujratolti az oldalt és lecsatlakoztatja a socket.io-ról a kijelentkezett klienst
+    
+        socket.disconnect()
+    }
+    
 }
 
 function userDelete(socket) {
