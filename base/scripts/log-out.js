@@ -11,9 +11,7 @@ function userLogOut(socket) {
 }
 
 function logoutEmit(socket) {
-
     const own = document.querySelector('.own')
-    console.log(own.id);
 
     if (own.id) {
         socket.emit('logout', {user: own.innerText}) // küld egy csomagot a szervernek benne a kijelentkezett felhasználóval (amit az OWN elem miatt könnyedén lehet vizsgálni)
@@ -27,7 +25,7 @@ function logoutEmit(socket) {
 
 function userDelete(socket) {
     socket.on('user-left', (lgUser) => { // a többi kliens felé intézett parancs
-        /* loggedOutUserOutput(lgUser.user) */ // ha kell a kiírás
+        loggedOutUserOutput(lgUser.user) // ha kell a kiírás
 
         const users = document.getElementById('users')
         

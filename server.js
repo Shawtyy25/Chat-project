@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
                 console.log(`Új felhasználó csatlakozott: ${socket.user} (id: ${socket.id})`);
 
                 io.to(socket.id).emit('userJoined', {ifExist: userExists, ownSocket: socket.id, users: users})
-                socket.broadcast.emit('userJoinedToAll', {users: users})
+                socket.broadcast.emit('userJoinedToAll', {users: users, userID: socket.id})
             }
         }
 
@@ -77,18 +77,20 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('user-left', {user: logout.user})
     }) 
 
-    socket.on('disconnect', () => {
-        
-        if (socket.user !== undefined && socket.user ) {
-            console.log(`Kliens lecsatlakozott: ${socket.id} (felhasználónév: ${socket.user})`);
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].user === socket.user) {
-                    users.splice(i, 1);
-                    break;
+    socket.on('disconnect', (data) => {
+        if (data === 'transport close') {
+            if (socket.user !== undefined && socket.user ) {
+                console.log(`Kliens lecsatlakozott: ${socket.id} (felhasználónév: ${socket.user})`);
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].user === socket.user) {
+                        users.splice(i, 1);
+                        break;
+                    }
                 }
             }
+            socket.broadcast.emit('user-left', {user: socket.user})
         }
-        socket.broadcast.emit('user-left', {user: socket.user})
+        
         
     })
 
