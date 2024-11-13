@@ -26,6 +26,10 @@ export function getValue(socket) {
         }
 
     })
+    
+    socket.on('joinedUserMessageError', (error) => {
+        sendErrorMessage(error.exist)
+    })
 
     socket.on('userJoinedToAll', (profiles) => {
         const own = document.querySelector('.own')
@@ -44,9 +48,9 @@ export function getValue(socket) {
                 addUsers(data)
             }
 
-           /*  if (data.id === profiles.userID) {
+            if (data.id === profiles.userID) {
                 loggedInUserOutput(data.user) // ha kell a kiírás
-            } */
+            }
         }
 
     })

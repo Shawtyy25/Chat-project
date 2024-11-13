@@ -39,6 +39,7 @@ io.on('connection', (socket) => {
             for (let data of users) {
                 if (data.user === user.user) {
                     userExists = true // ha ismétlődik akkor kap egy true értéket, amit kliens oldalon vizsgálok is
+                    
                     io.emit('userJoined', {ifExist: userExists})
                     break
                     
@@ -54,7 +55,7 @@ io.on('connection', (socket) => {
             }
         }
 
-        
+        io.to(socket.id).emit('joinedUserMessageError', {exist: userExists})
 
     })
 
@@ -72,9 +73,8 @@ io.on('connection', (socket) => {
                 users.splice(i, 1)
                 break
             }
+            socket.broadcast.emit('user-left', {user: logout.user})
         }
-
-        socket.broadcast.emit('user-left', {user: logout.user})
     }) 
 
     socket.on('disconnect', (data) => {
