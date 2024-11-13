@@ -3,7 +3,7 @@ export function loggedOutUserOutput(data) {
     const chat = document.getElementById('chat')
 
     user.classList.add('loggedOutUser')
-    user.innerText = `Kijelentkezett ${data} felhasználó!`
+    user.innerText = `${data} has left the chat!`
 
     chat.appendChild(user)
 }

@@ -3,7 +3,7 @@ export function loggedInUserOutput(data) {
     const chat = document.getElementById('chat')
 
     user.classList.add('loggedInUser')
-    user.innerText = `Bejelentkezett ${data} felhasználó!`
+    user.innerText = `${data} has joined the chat!`
 
     chat.appendChild(user)
 }
