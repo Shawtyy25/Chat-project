@@ -1,3 +1,4 @@
+
 function sendMessage(socket) {
     const send = document.getElementById('send-msg')
 
@@ -7,13 +8,16 @@ function sendMessage(socket) {
         messageEmit(socket)
     })
 
+    
+
 }
 
 function messageEmit(socket) {
     const chatbox = document.getElementById('chatbox')
     const own = document.querySelector('.own')
+    const prvtUser = document.getElementById('prvtUser')
 
-    if (chatbox.value) {
+    if (chatbox.value && !prvtUser.innerText) {
         socket.emit('send-message', { sender: own.innerText, msg: chatbox.value }) // küdljük a szervernek az üzenetet, az üzentettel és a hozzá tartozó felhasználóval
         chatbox.value = ''
     }

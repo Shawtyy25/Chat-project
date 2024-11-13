@@ -5,8 +5,7 @@ function addOwnUser(profiles, data) {
     ownUser.classList.add('own')
     ownUser.innerText = data.user
 
-    users.appendChild(ownUser)
-
+    users.appendChild(ownUser)  
 }
 
 
@@ -14,7 +13,9 @@ function addUsers(data) {
     const users = document.getElementById('users')
     const user = document.createElement('p')
     user.innerText = data.user
+
     users.appendChild(user)
+    
 }
 
 

@@ -4,7 +4,7 @@ import { sendErrorMessage } from "./error-message.js"
 
 export function getValue(socket) {
     const users = document.getElementById('users')
-    const loginError = document.getElementById('login-error')
+    
 
 
     socket.on('userJoined', (profiles) => {
@@ -46,12 +46,14 @@ export function getValue(socket) {
         for (let data of profiles.users) {
             if (data.user !== own.innerText.trim()) {
                 addUsers(data)
+                
             }
 
             if (data.id === profiles.userID) {
                 loggedInUserOutput(data.user) // ha kell a kiírás
             }
         }
+        
 
     })
 }

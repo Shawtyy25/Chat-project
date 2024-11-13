@@ -66,6 +66,12 @@ io.on('connection', (socket) => {
     })
 
 
+    // Private message 
+    socket.on('privateMessage', (data) => {
+        console.log(data);
+    })
+
+
     // user logout
     socket.on('logout', (logout) => { // kilépés esetén csak töröljük a users objectből a felhasználót, és ki is osztjuk a klienseknek broadcast segítségével
         for (let i = 0; i < users.length; i++) {
@@ -93,6 +99,7 @@ io.on('connection', (socket) => {
         
         
     })
+
 
 })
 
