@@ -1,11 +1,14 @@
 import { addUsers, addOwnUser } from "../functions/add-users.js"
 import { loggedInUserOutput } from "../functions/loggedIn-user.js"
+import { sendErrorMessage } from "./error-message.js"
 
 export function getValue(socket) {
     const users = document.getElementById('users')
     const loginError = document.getElementById('login-error')
 
+
     socket.on('userJoined', (profiles) => {
+        sendErrorMessage(profiles.ifExist)
 
         if (!profiles.ifExist) { // vizsgálja hogy a megadott felhasználónév foglalt-e
             for (let data of profiles.users) {
