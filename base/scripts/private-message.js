@@ -1,7 +1,5 @@
 import { senderSide, receiverSide } from "../functions/add-users-to-private.js"
 
-
-
 function sendToUser(socket) {
     document.addEventListener('usersAdded', () => {
 
@@ -32,7 +30,6 @@ function sendToUser(socket) {
 
         })
 
-
         receivePrivateMessage(socket)
         privateMessageSender(socket)
     })
@@ -49,15 +46,17 @@ function privateMessage(socket, receiver) {
     socket.emit('privateMessage', { sender: own.innerText, receiver: receiver, msg: chatbox.value })
 }
 
+
+// receive
 function receivePrivateMessage(socket) {
     socket.on('prvtMsgReceiver', (data) => {
-        console.log(data.sender, data.msg);
+        receiverSide(data)
     }) 
 }
 
 function privateMessageSender(socket) {
     socket.on('prvtMsgSender', (data) => {
-        console.log(data.receiver, data.msg);
+        senderSide(data)
     })
 }
 
