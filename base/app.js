@@ -5,7 +5,7 @@ leftSideAppender(channels, "channel-item", "channel-img", src, "channel-info", "
 
 const channelInfo = document.querySelectorAll(".channel-info")
 const channelImg = document.querySelectorAll(".channel-img")
-const channelNames = [ "channelItem", "macska", "kutya" ]
+const channelNames = [ "1v1 chatroom", "macska", "kutya" ]
 const channelText = document.querySelectorAll(".channel-text")
 import { listSelect } from "./scripts/channel-text.js"
 listSelect(channelImg, channelNames, channelText, channelInfo)
@@ -13,7 +13,12 @@ listSelect(channelImg, channelNames, channelText, channelInfo)
 import { channelImgEvent } from "./scripts/channel-img-event.js"
 channelImgEvent()
 
+import { profileSettingsAdjustal } from "./scripts/profile-settings-adjustal.js"
+profileSettingsAdjustal()
+
+import { channelMiddleAdjustal } from "./scripts/channel-middle-adjustal.js"
+channelMiddleAdjustal()
+
 import { appearanceChecker } from "./scripts/appearance-mode.js" 
 appearanceChecker()
-
 

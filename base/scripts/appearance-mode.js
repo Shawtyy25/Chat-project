@@ -37,19 +37,24 @@ export function appearanceChecker(){
     const sidesColors = [ "side-dark", "side-light" ]
     handleAppearanceModeLight(sides, sidesColors)
 
-    const channelItems = document.querySelectorAll(".channel-info")
+    const channelInfo = document.querySelectorAll(".channel-info")
     const channelColors = [ "channel-dark", "channel-light" ]
-    handleAppearanceModeLight(channelItems, channelColors)
+    const profile = document.querySelector(".profile")
+    const profiles = [ profile ]
+    handleAppearanceModeLight(channelInfo, channelColors)
+    handleAppearanceModeLight(profiles, channelColors)
 
     appearanceInput.addEventListener("change", () =>{
         if (appearanceInput.checked) {
            handleAppearanceModeDark(themeItems, themeColors)
            handleAppearanceModeDark(sides, sidesColors)
-           handleAppearanceModeDark(channelItems, channelColors)
+           handleAppearanceModeDark(channelInfo, channelColors)
+           handleAppearanceModeDark(profiles, channelColors)
         } else{
            handleAppearanceModeLight(themeItems, themeColors)
            handleAppearanceModeLight(sides, sidesColors)
-           handleAppearanceModeLight(channelItems, channelColors)
+           handleAppearanceModeLight(channelInfo, channelColors)
+           handleAppearanceModeLight(profiles, channelColors)
         }
     })
 }
