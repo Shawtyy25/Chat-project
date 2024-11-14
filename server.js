@@ -68,7 +68,13 @@ io.on('connection', (socket) => {
 
     // Private message 
     socket.on('privateMessage', (data) => {
-        console.log(data);
+        for (let user of users) {
+            if (user.user === data.receiver) {
+                console.log(user.id, socket.id);
+                socket.to(user.id).emit('prvtMsgReceiver', { sender: data.sender, msg: data.msg })
+                socket.to(socket.id).emit('prvtMsgSender', { sender: data.sender, receiver: data.receiver, msg: data.msg })
+            }
+        }
     })
 
 

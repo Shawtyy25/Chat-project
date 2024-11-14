@@ -15,6 +15,8 @@ function addUsers(data) {
     user.innerText = data.user
 
     users.appendChild(user)
+
+    
     
 }
 

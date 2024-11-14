@@ -6,7 +6,6 @@ export function getValue(socket) {
     const users = document.getElementById('users')
     
 
-
     socket.on('userJoined', (profiles) => {
 
         if (!profiles.ifExist) { // vizsgálja hogy a megadott felhasználónév foglalt-e
@@ -23,6 +22,8 @@ export function getValue(socket) {
                     addUsers(data) // hozzáadja a többi felhasználót kizárva az OWN itemet
                 }
             }
+            const event = new Event('usersAdded')
+            document.dispatchEvent(event)
         }
 
     })
@@ -47,15 +48,19 @@ export function getValue(socket) {
             if (data.user !== own.innerText.trim()) {
                 addUsers(data)
                 
+                
             }
 
             if (data.id === profiles.userID) {
                 loggedInUserOutput(data.user) // ha kell a kiírás
             }
+
+            
         }
         
-
+        
     })
+    
 }
 
 
