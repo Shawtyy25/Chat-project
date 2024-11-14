@@ -6,16 +6,22 @@ function sendToUser(socket) {
         const users = document.getElementById('users')
         const own = document.querySelector('.own')
         const send = document.getElementById('send-msg')
-        console.log(users);
-        console.log(own);
+        const prvtUser = document.getElementById('prvtUser')
         let receiver
 
         users.addEventListener('click', (event) => {
             if (event.target.matches('p')) {
                 const { id, innerText } = event.target                
                 if (!id) {
-                    chatboxLog(innerText)
-                    receiver = innerText
+                    if (receiver === innerText) {
+                        prvtUser.innerText = ''
+                        receiver = ''
+
+                    } else {
+                        chatboxLog(innerText)
+                        receiver = innerText
+                    }
+                    
                 }
             }
 
