@@ -19,7 +19,7 @@ export function channelMiddleAdjustal(){
         `
         <div class="container middle-content">
                 <div class="container middle-text">
-
+                    
                 </div>
 
                <div class="middle-input-parent">
@@ -38,7 +38,7 @@ export function channelMiddleAdjustal(){
                </div>
             </div>
         `
-        
+
     let toggle = false
     const rightSide = document.querySelector(".right-side")
     const middle = document.querySelector(".middle")

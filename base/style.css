@@ -221,6 +221,7 @@ input:checked + .slider::before{
 
 .middle-text{
     /* background-color: blue; */
+    overflow-y: scroll;
 }
 
 .middle-input-parent{
@@ -237,7 +238,7 @@ input:checked + .slider::before{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem;
+    margin: 0 1rem 1rem 1rem;
     border-radius: 1rem;
 }
 
@@ -281,5 +282,5 @@ input:checked + .slider::before{
 }
 
 .input-down{
-    margin-bottom: -10rem;
+    transform: translateY(10rem);
 }

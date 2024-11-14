@@ -88,10 +88,10 @@
 
 @keyframes inputForwards {
     0%{
-        margin-bottom: -10rem;
+        transform: translateY(10rem);
     }
   
     100%{
-        margin-bottom: 0;
+        transform: translateY(0);
     }
 }
