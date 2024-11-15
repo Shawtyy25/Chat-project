@@ -1,4 +1,4 @@
-import { appearanceChecker } from "./appearance-mode.js" 
+// import { appearanceChecker, appearanceCheckerSender } from "./appearance-mode.js" 
 // import { rightSideAppear } from "./right-side-appear.js"
 import { emojiRandomizer } from "./emoji-randomizer.js"
 
@@ -18,7 +18,7 @@ export function channelMiddleAdjustal(){
     const midContent = 
         `
         <div class="container middle-content">
-                <div class="container middle-text">
+                <div class="container middle-text" id="chat">
                     
                 </div>
 
@@ -28,15 +28,24 @@ export function channelMiddleAdjustal(){
                             <div class="middle-input-keyboard-emoji">
                                 <i class="fa-solid fa-keyboard send-msg-emoji"></i>
                             </div>
-                            <input type="text" id="send-msg">
+                            <div id="prvtUser"></div>
+                            <input type="text" id="chatbox">
                         </div>
                         <div class="middle-input-emoji">
-                            <i class="fa-solid fa-paper-plane send-msg-emoji"></i>
+                            <i class="fa-solid fa-paper-plane send-msg-emoji" id="send-msg"></i>
                             <i class="fa-solid send-msg-emoji"></i>
                         </div>
                     </div>
                </div>
             </div>
+        `
+
+    const rightSideContent = 
+        `
+            <div class="users-div" id="users">
+                
+            </div>
+            <button type="button" id="logout">log out</button>
         `
 
     let toggle = false
@@ -47,26 +56,28 @@ export function channelMiddleAdjustal(){
     middle.innerHTML = midContentInformation
     leftIcon.addEventListener("click", () =>{
         middle.innerHTML = ""
+        rightSide.innerHTML = ""
         middle.innerHTML = midContentInformation
         rightSide.classList.remove("right-side-forwards")
         toggle = false
-        appearanceChecker()
     })
     
  
     const channelImg = document.querySelectorAll(".channel-img")
     for (let index = 0; index < channelImg.length; index++){
-        channelImg[index].addEventListener("click", () =>{  
+        channelImg[index].addEventListener("click", () =>{
+        
             if (toggle === false){
                 middle.innerHTML = ""
                 middle.innerHTML = midContent
                 emojiRandomizer()
-
+                // appearanceCheckerSender()
                 const middleInputParent = document.querySelector(".middle-input-parent")
                 middleInputParent.classList.add("input-down")
 
                 rightSide.classList.add("right-side-forwards")
                 rightSide.addEventListener("animationend", () =>{
+                    rightSide.innerHTML = rightSideContent
                     middleInputParent.classList.add("input-forwards")
                     middleInputParent.classList.remove("input-down")
                     toggle = true
@@ -75,6 +86,7 @@ export function channelMiddleAdjustal(){
                 const middleInputParent = document.querySelector(".middle-input-parent")
                 middleInputParent.classList.remove("input-down")
             }
+            
         })
     }
 }
