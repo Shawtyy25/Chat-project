@@ -60,6 +60,7 @@ export function channelMiddleAdjustal(){
         middle.innerHTML = midContentInformation
         rightSide.classList.remove("right-side-forwards")
         toggle = false
+        appended = false
     })
     
  
@@ -74,6 +75,7 @@ export function channelMiddleAdjustal(){
                 // appearanceCheckerSender()
                 const middleInputParent = document.querySelector(".middle-input-parent")
                 middleInputParent.classList.add("input-down")
+                
 
                 rightSide.classList.add("right-side-forwards")
                 rightSide.addEventListener("animationend", () =>{
@@ -81,6 +83,9 @@ export function channelMiddleAdjustal(){
                     middleInputParent.classList.add("input-forwards")
                     middleInputParent.classList.remove("input-down")
                     toggle = true
+                    appended = true
+                    /* const event = new Event('usersAppended')
+                    document.dispatchEvent(event) */
                 })
             } else{
                 const middleInputParent = document.querySelector(".middle-input-parent")

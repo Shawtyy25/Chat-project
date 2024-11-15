@@ -18,23 +18,8 @@ leftSideAppender(channels, "channel-item", "channel-img", src, "channel-info", "
 
 const channelInfo = document.querySelectorAll(".channel-info")
 const channelImg = document.querySelectorAll(".channel-img")
-const channelNames = [ "1v1 chatroom", "macska", "kutya" ]
+const channelNames = ["1v1 chatroom", "macska", "kutya"]
 const channelText = document.querySelectorAll(".channel-text")
-
-listSelect(channelImg, channelNames, channelText, channelInfo)
-
-
-channelImgEvent()
-
-
-profileSettingsAdjustal()
-
-
-channelMiddleAdjustal()
-
-
-
-
 
 
 
@@ -45,29 +30,32 @@ Themes();
 
 const login = document.getElementById('login');
 const user = document.getElementById('user');
-const users = document.getElementById('users')
 const main = document.querySelector('main')
 const loginWindow = document.querySelector('.wrapper')
 
+listSelect(channelImg, channelNames, channelText, channelInfo)
+
+
+channelImgEvent()
+
+
+profileSettingsAdjustal()
+
+channelMiddleAdjustal()
 
 login.addEventListener('click', () => {
     if (user.value) {
         socket = io()
-
-        main.style.display = 'block'
-        loginWindow.style.display = 'none'
-
         sendValue(socket, user.value)
         getValue(socket)
 
         messageReceiver(socket)
 
         runLogOut(socket)
-        
-        
-        sendToUser(socket)        
-        
-        
+
+
+        sendToUser(socket)
+
     }
 
 })
