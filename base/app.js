@@ -19,8 +19,10 @@ const loginWindow = document.querySelector('.wrapper')
 login.addEventListener('click', () => {
     if (user.value) {
         socket = io()
+
         main.style.display = 'block'
         loginWindow.style.display = 'none'
+        
         sendValue(socket, user.value)
         getValue(socket)
 
