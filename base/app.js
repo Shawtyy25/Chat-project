@@ -3,8 +3,11 @@ import { runLogOut } from "./scripts/log-out.js";
 import { sendToUser } from "./scripts/private-message.js";
 import { messageReceiver } from "./scripts/send-message.js";
 import { sendValue } from "./scripts/user-login.js";
+import {Themes } from "./scripts/login.js";
 
 let socket;
+
+Themes();
 
 const login = document.getElementById('login');
 const user = document.getElementById('user');
@@ -29,6 +32,7 @@ login.addEventListener('click', () => {
     }
 
 })
+
 
 
 

@@ -1,9 +1,457 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+:root {
+    --login-box-light: rgba(255, 255, 255, 0.8);
+    --login-box-dark: rgba(50, 50, 50, 0.8);
+    --text-color-light: #333;
+    --text-color-dark: #fff;
+    --button-bg-light: #4a6feb;
+    --button-bg-dark: #7080ff;
+    --button-hover-light: #6c89f0;
+    --button-hover-dark: #8795ff;
+    --theme-selector-light: #fff;
+    --theme-selector-dark: #242424;
+}
+
+
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+}
+    /* Login*/
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease, background-color 0.5s ease;
+}
+
+.wrapperLight {
+    background-image: url('./img/freepik__expand__35130.png');
+    background-color: #ffffff;
+    color: var(--text-color-light);
+}
+
+.wrapperDark {
+    background-image: url('./img/freepik__a-minimalist-abstract-background-with-soft-flowing__78860.jpeg');
+    background-color: #1c1c1c;
+    color: var(--text-color-dark);
+}
+
+.login {
+    background-color: var(--login-box-light);
+    height: 400px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.5s, color 0.5s;
+    row-gap: 2rem;
+}
+
+.wrapperDark .login {
+    background-color: var(--login-box-dark);
+}
+/* Theme*/
+
+.theme-selector {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: -10rem;
+    left: 100px;
+}
+
+.theme-selector label {
+    width: 60px;
+    height: 30px;
+    position: relative;
+    display: block;
+    background: var(--theme-selector-light);
+    border-radius: 200px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-selector input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.theme-selector input:checked + label {
+    background: var(--theme-selector-dark);
+}
+
+.theme-selector input:checked + label::after {
+    left: 55px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.theme-selector label::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 100px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    
+}
+
+.theme-selector label svg{
+    position: absolute;
+    width: 120%;
+    z-index: 100;
+}
+label .sun{
+    left: -21px;
+    top: -17px;
+    outline:#fff;
+    transition: 0.3s;
+    transform:scale(.4);
+    
+}
+label .moon{
+    top: -17px;
+    left: 10px;
+    fill: grey;
+    transition: 0.3s;
+    transform:scale(.4);
+}
+.theme-selector input:checked + label svg.sun{
+    fill: grey;
+}
+.theme-selector input:checked + label svg.moon{
+    fill: rgb(255, 255, 255);
+}
+/* Error */
+.LoginTextContent .error{
+    color: red;
+    text-decoration: underline;
+}
+
+.LoginTextContent .inputError {
+    padding: 0.75rem;
+    margin-bottom: 20px;
+    border: 3px solid red;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+
+/* Text */
+
+.LoginTextContent {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color-light);
+}
+
+
+
+
+.wrapperDark .LoginTextContent {
+    color: var(--text-color-dark);
+}
+
+.LoginTextContent h2 {
+    text-align: center;
+}
+
+.LoginTextContent h5 {
+    margin-bottom: 10px;
+}
+
+.LoginTextContent input{
+    padding: 0.75rem;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+}
+
+.LoginTextContent .button a {
+    background: var(--button-bg-light);
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    transition: 0.3s;
+    border-radius: 5px;
+    position: relative;
+    width: 15rem;
+    display: flex;
+}
+
+.wrapperDark .button a {
+    background: var(--button-bg-dark);
+}
+
+.LoginTextContent .button a:hover {
+    background: var(--button-hover-light);
+    box-shadow: 0 0 35px var(--button-bg-light);
+}
+
+.wrapperDark .button a:hover {
+    background: var(--button-hover-dark);
+}
+
+.LoginTextContent .button a span {
+    position: relative;
+    z-index: 1;
+    padding: 0.75rem;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+}
+    /* Login*/
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease, background-color 0.5s ease;
+}
+
+.wrapperLight {
+    background-image: url('./img/freepik__expand__35130.png');
+    background-color: #ffffff;
+    color: var(--text-color-light);
+}
+
+.wrapperDark {
+    background-image: url('./img/freepik__a-minimalist-abstract-background-with-soft-flowing__78860.jpeg');
+    background-color: #1c1c1c;
+    color: var(--text-color-dark);
+}
+
+.login {
+    background-color: var(--login-box-light);
+    height: 400px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    transition: background-color 0.5s, color 0.5s;
+    row-gap: 2rem;
+}
+
+.wrapperDark .login {
+    background-color: var(--login-box-dark);
+}
+/* Theme*/
+
+.theme-selector {
+    width: 120px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: -10rem;
+    left: 100px;
+}
+
+.theme-selector label {
+    width: 60px;
+    height: 30px;
+    position: relative;
+    display: block;
+    background: var(--theme-selector-light);
+    border-radius: 200px;
+    box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-selector input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.theme-selector input:checked + label {
+    background: var(--theme-selector-dark);
+}
+
+.theme-selector input:checked + label::after {
+    left: 55px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.theme-selector label::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+    border-radius: 100px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    
+}
+
+.theme-selector label svg{
+    position: absolute;
+    width: 120%;
+    z-index: 100;
+}
+label .sun{
+    left: -21px;
+    top: -17px;
+    outline:#fff;
+    transition: 0.3s;
+    transform:scale(.4);
+    
+}
+label .moon{
+    top: -17px;
+    left: 10px;
+    fill: grey;
+    transition: 0.3s;
+    transform:scale(.4);
+}
+.theme-selector input:checked + label svg.sun{
+    fill: grey;
+}
+.theme-selector input:checked + label svg.moon{
+    fill: rgb(255, 255, 255);
+}
+/* Error */
+.LoginTextContent .error{
+    color: red;
+    text-decoration: underline;
+}
+
+.LoginTextContent .inputError {
+    padding: 0.75rem;
+    margin-bottom: 20px;
+    border: 3px solid red;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+
+/* Text */
+
+.LoginTextContent {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color-light);
+}
+
+
+
+
+.wrapperDark .LoginTextContent {
+    color: var(--text-color-dark);
+}
+
+.LoginTextContent h2 {
+    text-align: center;
+}
+
+.LoginTextContent h5 {
+    margin-bottom: 10px;
+}
+
+.LoginTextContent input{
+    padding: 0.75rem;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+}
+
+.LoginTextContent .button a {
+    background: var(--button-bg-light);
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    transition: 0.3s;
+    border-radius: 5px;
+    position: relative;
+    width: 15rem;
+    display: flex;
+}
+
+.wrapperDark .button a {
+    background: var(--button-bg-dark);
+}
+
+.LoginTextContent .button a:hover {
+    background: var(--button-hover-light);
+    box-shadow: 0 0 35px var(--button-bg-light);
+}
+
+.wrapperDark .button a:hover {
+    background: var(--button-hover-dark);
+}
+
+.LoginTextContent .button a span {
+    position: relative;
+    z-index: 1;
+    padding: 0.75rem;
+    margin: 0 auto;
 }
 
 i{
