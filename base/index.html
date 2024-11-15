@@ -8,31 +8,38 @@
     <script src="/socket.io/socket.io.js"></script>
     <script type="module" src="./app.js" defer></script>
 </head>
-<body style="background-color: gray;">
-    <main>
-        <div id="login-error" style="background-color: red; width: 500px; display: none;">
-            <p>Username is already exist.</p>
+<body>
+   
+    <div class="container content">
+        <div class="left-side">
+            <div class="left-side-top">
+                <i class="fa-solid fa-universal-access left-icon"></i>
+                <hr class="line">
+                <div class="channels">     
+                </div>
+            </div>
+          
+            <div class="profile">
+                <i class="fa-solid fa-circle-user profile-pic"></i>
+                <div class="profile-settings hidden">
+                    <i class="fa-solid fa-circle-xmark exit"></i>
+                </div>
+           </div>
         </div>
-        <input type="text" name="" id="user">
-        <button id="login">login</button>
-        <div id="chat"></div>
-        <div id="prvtUser" style="max-width: 200px; border: 1px solid black; background-color: rgb(56, 56, 56); color: white; font-size: .8rem;">
-            
+        <div class="container middle">
+          
+
+
+            <!-- <label class="switch">
+                <input type="checkbox" id="appearance">
+                <span class="slider"></span>
+            </label> -->
         </div>
-        <div id="clearPrvt"></div>
-        <input type="text" name="chatbox" id="chatbox">
-        <button id="send-msg">
-            Send
-        </button>
-
-        <hr>
-        <hr>
-
-        <div id="users">
-            
+        <div class="right-side">
+            <!-- <p class="user">asd</p> -->
         </div>
+    </div>
 
-        <button id="logout">Log out</button>
-    </main>
+    <script src="https://kit.fontawesome.com/f17ac2bc1e.js" crossorigin="anonymous"></script>
 </body>
 </html>
