@@ -11,10 +11,6 @@ const user = document.getElementById('user');
 const users = document.getElementById('users')
 
 
-
-
-
-
 login.addEventListener('click', () => {
     if (user.value) {
         socket = io()
