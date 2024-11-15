@@ -11,36 +11,42 @@
 </head>
 
 <body>
-    <input type="text" name="" id="user">
-    <button id="login">login</button>
-    <main>
-
+    <input type="text" id="user">
+    <button id="login">Login</button>
+    <div class="container content">
         <div class="left-side">
-            <div class="content">
-                <img src="./sleeping.png" alt="">
-                <img src="./sleeping.png" alt="">
-                <img src="./sleeping.png" alt="">
-                <img src="./sleeping.png" alt="">
-                <img src="./sleeping.png" alt="">
+            <div class="left-side-top">
+                <i class="fa-solid fa-universal-access left-icon"></i>
+                <hr class="line">
+                <div class="channels">     
+                </div>
             </div>
+          
+            <div class="profile">
+                <i class="fa-solid fa-circle-user profile-pic"></i>
+                <div class="profile-settings hidden">
+                    <i class="fa-solid fa-circle-xmark exit"></i>
+                </div>
+           </div>
         </div>
-        <div class="middle">
-            <div id="chat">
+        <div class="container middle">
+          
 
-            </div>
-            <div class="input">
-                <div id="prvtUser"></div>
-                <input type="text" id="chatbox">
-                <button type="button" id="send-msg">Send</button>
-            </div>
+
+            <!-- <label class="switch">
+                <input type="checkbox" id="appearance">
+                <span class="slider"></span>
+            </label> -->
         </div>
         <div class="right-side">
-            <div class="content" id="users">
+            <div class="users-div" id="users">
 
             </div>
-            <button type="button" id="logout">Log out</button>
+            <button id="logout">log out</button>
         </div>
-    </main>
+    </div>
+
+    <script src="https://kit.fontawesome.com/f17ac2bc1e.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
