@@ -1,45 +1,41 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="module" src="./app.js" defer></script>
+    <title>Document</title>
 </head>
+
 <body>
-   
-    <div class="container content">
+    <main>
         <div class="left-side">
-            <div class="left-side-top">
-                <i class="fa-solid fa-universal-access left-icon"></i>
-                <hr class="line">
-                <div class="channels">     
-                </div>
+            <div class="content">
+                <img src="./sleeping.png" alt="">
+                <img src="./sleeping.png" alt="">
+                <img src="./sleeping.png" alt="">
+                <img src="./sleeping.png" alt="">
+                <img src="./sleeping.png" alt="">
             </div>
-          
-            <div class="profile">
-                <i class="fa-solid fa-circle-user profile-pic"></i>
-                <div class="profile-settings hidden">
-                    <i class="fa-solid fa-circle-xmark exit"></i>
-                </div>
-           </div>
         </div>
-        <div class="container middle">
-          
+        <div class="middle">
+            <div id="chat">
 
-
-            <!-- <label class="switch">
-                <input type="checkbox" id="appearance">
-                <span class="slider"></span>
-            </label> -->
+            </div>
+            <div class="input">
+                <div id="prvtUser"></div>
+                <input type="text" id="chatbox">
+                <button type="button" id="send-msg">Küldjed geci</button>
+            </div>
         </div>
         <div class="right-side">
-            <!-- <p class="user">asd</p> -->
-        </div>
-    </div>
+            <div class="content"  id="users">
 
-    <script src="https://kit.fontawesome.com/f17ac2bc1e.js" crossorigin="anonymous"></script>
+            </div>
+            <button type="button" id="logout">Log out</button>
+        </div>
+    </main>
 </body>
+
 </html>
