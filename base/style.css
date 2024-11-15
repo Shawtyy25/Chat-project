@@ -7,7 +7,6 @@
     margin: 0;
     padding: 0;
 }
-
 i{
     display: flex;
     justify-content: center;
@@ -284,3 +283,4 @@ input:checked + .slider::before{
 .input-down{
     transform: translateY(10rem);
 }
+
