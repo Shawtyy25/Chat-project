@@ -5,6 +5,7 @@ import { messageReceiver } from "./scripts/send-message.js";
 import { sendValue } from "./scripts/user-login.js";
 import { Themes } from "./scripts/login.js";
 
+
 let socket;
 
 Themes();
@@ -22,7 +23,7 @@ login.addEventListener('click', () => {
 
         main.style.display = 'block'
         loginWindow.style.display = 'none'
-        
+
         sendValue(socket, user.value)
         getValue(socket)
 

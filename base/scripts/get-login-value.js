@@ -1,6 +1,6 @@
 import { addUsers, addOwnUser } from "../functions/add-users.js"
 import { loggedInUserOutput } from "../functions/loggedIn-user.js"
-import { sendErrorMessage } from "./error-message.js"
+import { sendErrorMessage } from "./error-message.js" 
 
 export function getValue(socket) {
     const users = document.getElementById('users')
