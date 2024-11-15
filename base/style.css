@@ -16,7 +16,6 @@ i{
 
 body{
     font-family: "Ubuntu", sans-serif;
-    cursor: url("https://cdn.discordapp.com/attachments/1106712720742568006/1304856650032746588/image.png?ex=6730e9f4&is=672f9874&hm=06ec4b25889dd73081776a2d159c9ce5b5e1570e2fbab324533683bcebdd4c98&"), auto;
 }
 
 .container.content{
@@ -144,6 +143,9 @@ input:checked + .slider::before{
 }
 
 .right-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
 }
 
@@ -211,7 +213,6 @@ input:checked + .slider::before{
 
 
 .middle-content{
-    /* background-color: red; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,12 +221,10 @@ input:checked + .slider::before{
 }
 
 .middle-text{
-    /* background-color: blue; */
     overflow-y: scroll;
 }
 
 .middle-input-parent{
-    /* background-color: aqua; */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -234,7 +233,6 @@ input:checked + .slider::before{
 
 .middle-input{
     width: 100%;
-    /* background-color: purple; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -247,7 +245,6 @@ input:checked + .slider::before{
     align-items: center;
     justify-content: center;
     width: 100%;
-    /* background-color: red; */
 }
 
 .middle-input-keyboard-emoji{
@@ -258,15 +255,14 @@ input:checked + .slider::before{
     display: flex;
     gap: 1rem;
     padding: 0 1rem 0 0;
-    /* background-color: blue; */
 }
 
-#send-msg{
+#chatbox{
     outline: 0;
     border: 0;
     width: 100%;
-    padding: 1rem 1rem;
-    font-weight: 600;
+    padding: 1rem 1rem 1rem 0;
+    font-weight: 500;
     color: black;
     font-size: 1.2rem;
 }
@@ -277,15 +273,40 @@ input:checked + .slider::before{
     cursor: pointer;
 }
 
-.middle-input, #send-msg{
-    background: var( --side-bg-color-light);
-}
-
 .input-down{
     transform: translateY(10rem);
 }
+
+#prvtUser{
+    margin: 0 1rem;
+    text-align: justify;
+}
+
 .users-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background-color: blue;
+}
+
+#logout{
+    cursor: pointer;
+    border: 0;
+    background-color: var();
+}
+
+
+
+
+
+
+
+
+.left-side, .right-side, .introduction, .middle-input-parent > *, #chatbox{
+    background-color: var(--side-bg-color-light);
+}
+
+.middle{
+    background-color: var(--main-bg-color-light);
+}
+
+.profile, .channel-info{
+    background-color: var(--channel-bg-light);
 }

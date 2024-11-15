@@ -33,9 +33,7 @@ export function appearanceChecker(){
     const themeColors = [ "dark-theme", "light-theme" ]
     handleAppearanceModeLight(themeItems, themeColors)
 
-    const sides = [ leftSide, rightSide, introduction ]
-    const sidesColors = [ "side-dark", "side-light" ]
-    handleAppearanceModeLight(sides, sidesColors)
+    
 
     const channelInfo = document.querySelectorAll(".channel-info")
     const channelColors = [ "channel-dark", "channel-light" ]
@@ -43,6 +41,10 @@ export function appearanceChecker(){
     const profiles = [ profile ]
     handleAppearanceModeLight(channelInfo, channelColors)
     handleAppearanceModeLight(profiles, channelColors)
+
+    const sides = [ leftSide, rightSide, introduction ]
+    const sidesColors = [ "side-dark", "side-light" ]
+    handleAppearanceModeLight(sides, sidesColors)
 
     appearanceInput.addEventListener("change", () =>{
         if (appearanceInput.checked) {
@@ -57,4 +59,22 @@ export function appearanceChecker(){
            handleAppearanceModeLight(profiles, channelColors)
         }
     })
+}
+
+export function appearanceCheckerSender(){
+    const appearanceInput = document.querySelector("#appearance")
+    const leftSide = document.querySelector(".left-side")
+    const rightSide = document.querySelector(".right-side")
+    const middleInput = document.querySelector(".middle-input")
+    const chatbox = document.querySelector("#chatbox")
+
+    const sides = [ leftSide, rightSide, middleInput, chatbox ]
+    const sidesColors = [ "side-dark", "side-light" ]
+    handleAppearanceModeLight(sides, sidesColors)
+
+    if (appearanceInput.checked){
+        handleAppearanceModeDark(sides, sidesColors)
+    } else{
+        handleAppearanceModeLight(sides, sidesColors)
+    }
 }
