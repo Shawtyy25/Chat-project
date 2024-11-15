@@ -9,6 +9,7 @@
     <script type="module" src="./app.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="wrapper wrapperLight">
         <div class="login">
@@ -17,12 +18,12 @@
                 <p>We're excited to see you again!</p>
                 <h5>Username</h5>
                 <label for="Username"></label>
-                <input type="text" placeholder="Username">
+                <input type="text" placeholder="Username" id="user">
                 <div class="error" id="login-error">
-                    
+
                 </div>
                 <div class="button">
-                    <a href="#"><span>Login</span></a>
+                    <a href="#"><span id="login">Login</span></a>
                 </div>
             </div>
             <div class="theme-selector">
@@ -66,10 +67,9 @@
             </div>
         </div>
     </div>
-    <input type="text" name="" id="user">
-    <button id="login">login</button>
-    <main>
 
+    <main>
+        
         <div class="left-side">
             <div class="content">
                 <img src="./sleeping.png" alt="">
