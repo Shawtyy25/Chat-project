@@ -7,10 +7,12 @@ export function channelMiddleAdjustal(){
    
     const midContentInformation = 
         `
-        <div class="introduction">
-            <img src="./sleeping.png" alt="">
-            <h1>Nothing new to see...</h1>
-            <h4>zZzZzZ</h4>
+        <div class="introduction-parent">
+            <div class="introduction">
+                <img src="./sleeping.png" alt="">
+                <h1>Nothing new to see...</h1>
+                <h4>zZzZzZ</h4>
+            </div>
         </div>
         `
 
@@ -53,12 +55,42 @@ export function channelMiddleAdjustal(){
     const middle = document.querySelector(".middle")
     const leftIcon = document.querySelector(".left-icon")
    
-    middle.innerHTML = midContentInformation
+    middle.innerHTML += midContentInformation
+    middle.innerHTML += midContent
+    rightSide.innerHTML += rightSideContent
+
+    const middleInputParent = document.querySelector(".middle-input-parent")
+    middleInputParent.classList.remove("input-forwards")
+    middleInputParent.classList.add("input-down")
+    emojiRandomizer()
+
+    const users = document.querySelector("#users")
+    const logout = document.querySelector("#logout")
+    users.classList.add("hidden")
+    logout.classList.add("hidden")
+    
+    const introductionParent = document.querySelector(".introduction-parent")
+    introductionParent.classList.remove("hidden")
+    introductionParent.classList.add("active-fx")
+
+    const middleText = document.querySelector("#chat")
+    middleText.classList.remove("op-active")
+    middleText.classList.add("op-hidden")
+
     leftIcon.addEventListener("click", () =>{
-        middle.innerHTML = ""
-        rightSide.innerHTML = ""
-        middle.innerHTML = midContentInformation
+        middleText.classList.remove("op-active")
+        middleText.classList.add("op-hidden")
+
+        middleInputParent.classList.remove("input-forwards")
+        middleInputParent.classList.add("input-down")
+
         rightSide.classList.remove("right-side-forwards")
+
+        users.classList.add("hidden")
+        logout.classList.add("hidden")
+
+        introductionParent.classList.remove("hidden")
+        introductionParent.classList.add("active-fx")
         toggle = false
     })
     
@@ -66,27 +98,32 @@ export function channelMiddleAdjustal(){
     const channelImg = document.querySelectorAll(".channel-img")
     for (let index = 0; index < channelImg.length; index++){
         channelImg[index].addEventListener("click", () =>{
-        
             if (toggle === false){
-                middle.innerHTML = ""
-                middle.innerHTML = midContent
-                emojiRandomizer()
-                // appearanceCheckerSender()
-                const middleInputParent = document.querySelector(".middle-input-parent")
-                middleInputParent.classList.add("input-down")
+                introductionParent.classList.remove("active-fx")
+                introductionParent.classList.add("hidden")
 
+                middleInputParent.classList.add("input-down")
+                
                 rightSide.classList.add("right-side-forwards")
                 rightSide.addEventListener("animationend", () =>{
-                    rightSide.innerHTML = rightSideContent
                     middleInputParent.classList.add("input-forwards")
                     middleInputParent.classList.remove("input-down")
+
+                    middleInputParent.addEventListener("animationend", () =>{
+                        users.classList.remove("hidden")
+                        logout.classList.remove("hidden")
+
+                        users.classList.add("active-bk")
+                        logout.classList.add("active-bk")
+
+                        middleText.classList.remove("op-hidden")
+                        middleText.classList.add("op-active")
+                    })
                     toggle = true
                 })
             } else{
-                const middleInputParent = document.querySelector(".middle-input-parent")
                 middleInputParent.classList.remove("input-down")
             }
-            
         })
     }
 }
