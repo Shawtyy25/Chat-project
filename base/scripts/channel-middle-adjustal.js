@@ -30,7 +30,13 @@ export function channelMiddleAdjustal(){
                             <div class="middle-input-keyboard-emoji">
                                 <i class="fa-solid fa-keyboard send-msg-emoji"></i>
                             </div>
-                            <div id="prvtUser"></div>
+                            <div class="prvtUserDiv hidden">
+                                <div id="prvtUser"></div>
+                                <i class="fa-solid fa-circle-xmark"></i>
+                            </div>
+                            
+                                
+                            
                             <input type="text" id="chatbox">
                         </div>
                         <div class="middle-input-emoji">

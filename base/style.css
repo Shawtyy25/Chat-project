@@ -660,12 +660,6 @@ input:checked + .slider::before{
 }
 
 
-
-
-
-
-
-
 .middle-content{
     display: flex;
     justify-content: center;
@@ -676,6 +670,12 @@ input:checked + .slider::before{
 
 .middle-text{
     overflow-y: scroll;
+}
+
+.middle-text p{
+    width: 90%;
+    word-break: break-all;
+    white-space: normal;
 }
 
 .middle-input-parent{
@@ -719,6 +719,7 @@ input:checked + .slider::before{
     font-weight: 500;
     color: black;
     font-size: 1.2rem;
+    margin-left: 15px;
 }
 
 .send-msg-emoji{
@@ -772,4 +773,28 @@ input:checked + .slider::before{
 
 .profile, .channel-info{
     background-color: var(--channel-bg-light);
+}
+
+.prvtUserDiv {
+    background-color: rgb(163, 163, 163);
+    padding: 6px;
+    border-radius: 5px;
+    flex-direction: row;
+    position: relative;
+    margin-left: 20px;
+}
+
+.prvtUserDiv i{
+    position: absolute;
+    right: 0;
+    top: -5px;
+    color: rgb(70, 69, 69);
+    background-color: rgb(212, 209, 209);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .1s;
+}
+
+.prvtUserDiv i:hover {
+    color: red;
 }

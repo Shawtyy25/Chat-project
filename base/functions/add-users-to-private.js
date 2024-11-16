@@ -3,13 +3,17 @@ function senderSide(data) {
     const message = document.createElement('p')
     const prvtUser = document.getElementById('prvtUser')
     const chatbox  = document.getElementById('chatbox')
+    const prvtUserDiv = document.querySelector('.prvtUserDiv')
+    const middle = document.querySelector('.middle-text')
 
     message.innerText = `${data.sender}[To: ${data.receiver}]: ${data.msg}`
 
     chat.append(message)
+    prvtUserDiv.classList.add('hidden')
+    prvtUserDiv.classList.remove('active-fx')
     prvtUser.innerText = ''
     chatbox.value = ''
-    window.scrollTo(0, document.body.scrollHeight)
+    /* middle.scrollTo(0, middle.scrollHeight) */
 }
 
 function receiverSide(data) {
@@ -17,13 +21,17 @@ function receiverSide(data) {
     const message = document.createElement('p')
     const prvtUser = document.getElementById('prvtUser')
     const chatbox  = document.getElementById('chatbox')
+    const prvtUserDiv = document.querySelector('.prvtUserDiv')
+    const middle = document.querySelector('.middle-text')
 
     message.innerText = `[From: ${data.sender}]: ${data.msg}`
 
     chat.append(message)
+    prvtUserDiv.classList.remove('active-fx')
+    prvtUser.innerText = ''
     prvtUser.innerText = ''
     chatbox.value = ''
-    window.scrollTo(0, document.body.scrollHeight)
+    /* middle.scrollTo(0, middle.scrollHeight) */
 }
 
 

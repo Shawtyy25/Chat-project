@@ -7,6 +7,7 @@ function sendToUser(socket) {
         const own = document.querySelector('.own')
         const send = document.getElementById('send-msg')
         const prvtUser = document.getElementById('prvtUser')
+        const prvtUserDiv = document.querySelector('.prvtUserDiv')
         let receiver
 
         users.addEventListener('click', (event) => {
@@ -14,6 +15,9 @@ function sendToUser(socket) {
                 const { id, innerText } = event.target                
                 if (!id) {
                     if (receiver === innerText) {
+                        prvtUserDiv.classList.add('hidden')
+                        prvtUserDiv.classList.remove('active-fx')
+                        
                         prvtUser.innerText = ''
                         receiver = ''
 
@@ -43,8 +47,11 @@ function sendToUser(socket) {
 
 function chatboxLog(child) {
     const prvtUser = document.getElementById('prvtUser')
+    const prvtUserDiv = document.querySelector('.prvtUserDiv')
+    prvtUserDiv.classList.add('active-fx')
+    prvtUserDiv.classList.remove('hidden')
     prvtUser.innerText = ''
-    prvtUser.innerText = `[To: ${child}]`
+    prvtUser.innerText = `${child}`
 }
 
 function privateMessage(socket, receiver) {

@@ -9,7 +9,9 @@ import { channelImgEvent } from "./scripts/channel-img-event.js"
 import { profileSettingsAdjustal } from "./scripts/profile-settings-adjustal.js"
 import { channelMiddleAdjustal } from "./scripts/channel-middle-adjustal.js"
 import { Themes } from "./scripts/login.js";
+import { hidePrvtDiv } from "./scripts/close-private-div.js";
 // import { appearanceChecker } from "./scripts/appearance-mode.js" 
+
 
 const channels = document.querySelector(".channels")
 var src = "./sleeping.png"
@@ -44,6 +46,8 @@ channelImgEvent()
 profileSettingsAdjustal()
 
 channelMiddleAdjustal()
+
+hidePrvtDiv()
 
 user.addEventListener('input', () => {
     emptyError.style.display = 'none'
