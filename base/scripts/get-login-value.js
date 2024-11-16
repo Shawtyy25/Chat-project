@@ -10,7 +10,6 @@ export function getValue(socket) {
     socket.on('userJoined', (profiles) => {
 
         if (!profiles.ifExist) { // vizsgálja hogy a megadott felhasználónév foglalt-e
-            console.log(main);
             main.style.display = 'block'
             loginWindow.style.display = 'none'
             for (let data of profiles.users) {

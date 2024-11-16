@@ -14,14 +14,17 @@
     <div class="wrapper wrapperLight">
         <div class="login">
             <div class="LoginTextContent">
+                <div class="loginError" id="login-error" style="display: none;">
+                    <p>Username already exists!</p>
+                </div>
+                <div class="emptyError" id="empty-error" style="display: none;">
+                    <p>Username must be filled!</p>
+                </div>
                 <h2>Welcome back!</h2>
-                <p>We're excited to see you again!</p>
                 <h5>Username</h5>
                 <label for="Username"></label>
                 <input type="text" placeholder="Username" id="user">
-                <div class="error" id="login-error">
-
-                </div>
+                
                 <div class="button">
                     <a href="#"  id="login"><span>Login</span></a>
                 </div>

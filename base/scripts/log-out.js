@@ -24,7 +24,9 @@ function logoutEmit(socket) {
 }
 
 function userDelete(socket) {
+    console.log('teszt');
     socket.on('user-left', (lgUser) => { // a többi kliens felé intézett parancs
+        console.log('Ciklusban lévő belső parancs');
         loggedOutUserOutput(lgUser.user) // ha kell a kiírás
 
         const users = document.getElementById('users')

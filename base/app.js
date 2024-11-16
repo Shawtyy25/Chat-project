@@ -32,6 +32,8 @@ const login = document.getElementById('login');
 const user = document.getElementById('user');
 const main = document.querySelector('main')
 const loginWindow = document.querySelector('.wrapper')
+const emptyError = document.getElementById('empty-error')
+const loginError = document.getElementById('login-error')
 
 listSelect(channelImg, channelNames, channelText, channelInfo)
 
@@ -42,6 +44,12 @@ channelImgEvent()
 profileSettingsAdjustal()
 
 channelMiddleAdjustal()
+
+user.addEventListener('input', () => {
+    emptyError.style.display = 'none'
+    loginError.style.display = 'none'
+    user.classList.remove('inputError')
+})
 
 login.addEventListener('click', () => {
     if (user.value) {
@@ -56,6 +64,9 @@ login.addEventListener('click', () => {
 
         sendToUser(socket)
 
+    } else {
+        emptyError.style.display = 'block'
+        user.classList.add('inputError')   
     }
 
 })
