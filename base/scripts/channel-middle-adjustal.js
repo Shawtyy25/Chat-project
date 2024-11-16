@@ -83,9 +83,8 @@ export function channelMiddleAdjustal(){
                     middleInputParent.classList.add("input-forwards")
                     middleInputParent.classList.remove("input-down")
                     toggle = true
-                    appended = true
-                    /* const event = new Event('usersAppended')
-                    document.dispatchEvent(event) */
+                    const event = new Event('usersAppended')
+                    document.dispatchEvent(event)
                 })
             } else{
                 const middleInputParent = document.querySelector(".middle-input-parent")
