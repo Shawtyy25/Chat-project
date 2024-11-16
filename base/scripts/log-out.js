@@ -30,9 +30,12 @@ function userDelete(socket) {
         loggedOutUserOutput(lgUser.user) // ha kell a kiírás
 
         const users = document.getElementById('users')
-        
+
+        console.log(users, 'USERS teszt');
+
         Array.from(users.children).forEach(user => {
-           if (user.innerText === lgUser.user) { // vizsgálja hogy melyik mező a kijelentkezett felhasználó, és kitörli azt.
+           if (user.innerText == lgUser.user) { // vizsgálja hogy melyik mező a kijelentkezett felhasználó, és kitörli azt.
+                console.log(user);
                 users.removeChild(user) 
            }
         });

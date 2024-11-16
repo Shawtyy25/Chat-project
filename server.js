@@ -85,8 +85,8 @@ io.on('connection', (socket) => {
                 users.splice(i, 1)
                 break
             }
-            socket.broadcast.emit('user-left', {user: logout.user})
         }
+        socket.broadcast.emit('user-left', {user: logout.user})
     }) 
 
     socket.on('disconnect', (data) => {
