@@ -474,6 +474,7 @@ body{
     height: 100vh;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .switch{
@@ -529,7 +530,7 @@ input:checked + .slider::before{
 
 .left-side{
     height: 100%;
-    width: 5rem;
+    width: var(--left-side-width);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -624,7 +625,7 @@ input:checked + .slider::before{
     left: 4.2rem;
     top: 50%;
     transform: translate(0, -50%);
-    z-index: 20;
+    z-index: 2001;
 }
 
 .channel-text{
@@ -741,13 +742,22 @@ input:checked + .slider::before{
 #logout{
     cursor: pointer;
     border: 0;
-    background-color: var();
 }
 
 
 
-
-
+.introduction-parent{
+    background-color: var(--main-bg-color-light);
+    position: absolute;
+    z-index: 2000;
+    left: var(--left-side-width);
+    top: 0;
+    right: 0;
+    width: calc(100% - var(--left-side-width));
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
 
 

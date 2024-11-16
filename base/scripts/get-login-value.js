@@ -32,7 +32,7 @@ export function getValue(socket) {
     })
     
     socket.on('joinedUserMessageError', (error) => {
-        sendErrorMessage(error.exist)
+        sendErrorMessage(error.exist, socket)
     })
 
     socket.on('userJoinedToAll', (profiles) => {

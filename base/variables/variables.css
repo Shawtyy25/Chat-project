@@ -12,6 +12,8 @@
     --main-color-light: black;
     --main-color-dark: white;
 
+    --left-side-width: 5rem;
+
     --side-bg-color-dark: rgb(20,20,20);
     --side-bg-color-light: rgb(192, 192, 192);
     --side-color-dark: white;
@@ -74,4 +76,12 @@
 
 .right-side-extended{
     width: var(--right-side-width);
+}
+
+.op-active{
+    opacity: 1;
+}
+
+.op-hidden{
+    opacity: 0;
 }
