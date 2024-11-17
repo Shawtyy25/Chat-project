@@ -13,7 +13,7 @@ function senderSide(data) {
     prvtUserDiv.classList.remove('active-fx')
     prvtUser.innerText = ''
     chatbox.value = ''
-    /* middle.scrollTo(0, middle.scrollHeight) */
+    middle.scrollTo(0, middle.scrollHeight)
 }
 
 function receiverSide(data) {
@@ -31,7 +31,7 @@ function receiverSide(data) {
     prvtUser.innerText = ''
     prvtUser.innerText = ''
     chatbox.value = ''
-    /* middle.scrollTo(0, middle.scrollHeight) */
+    middle.scrollTo(0, middle.scrollHeight)
 }
 
 
