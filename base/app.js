@@ -10,9 +10,9 @@ import { profileSettingsAdjustal } from "./scripts/profile-settings-adjustal.js"
 import { channelMiddleAdjustal } from "./scripts/channel-middle-adjustal.js"
 import { Themes } from "./scripts/login.js";
 import { hidePrvtDiv } from "./scripts/close-private-div.js";
-import { addFriendsDiv } from "./scripts/add-friends-div.js";
-import { addFriends } from "./scripts/add-friends.js";
-import { closeSfRequest } from "./scripts/close-sf-request.js";
+import { addFriendsDiv } from "./scripts/addFriendScripts/add-friends-div.js";
+import { checkFriendRequest } from "./scripts/addFriendScripts/add-friends.js";
+import { closeSfRequest } from "./scripts/addFriendScripts/close-sf-request.js";
 
 
 // import { appearanceChecker } from "./scripts/appearance-mode.js" 
@@ -76,7 +76,7 @@ login.addEventListener('click', () => {
 
 
         sendToUser(socket)
-        addFriends(socket)
+        checkFriendRequest(socket)
 
     } else {
         emptyError.style.display = 'block'

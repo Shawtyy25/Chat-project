@@ -3,7 +3,6 @@ export function closeSfRequest() {
     const afBtn = document.getElementById('addFriendsBtn')
     const friends = document.getElementById('friends')
     const addFriends = document.getElementById('addFriends')
-    const sfBtn = document.getElementById('sfRequest')
 
     closeSf.addEventListener('click', () => {
         afBtn.classList.add('active-fx')
@@ -14,8 +13,5 @@ export function closeSfRequest() {
 
         addFriends.classList.add('hidden')
         addFriends.classList.remove('active-fx')
-
-        sfBtn.classList.add('hidden')
-        sfBtn.classList.remove('active-fx')
     })
 }

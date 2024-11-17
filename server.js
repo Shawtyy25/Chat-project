@@ -78,6 +78,53 @@ io.on('connection', (socket) => {
     })
 
 
+    /* **---------------------** */
+    /* -------ADD FRIENDS------- */
+
+    socket.on('requestForFriends', (value) => {
+        let friends = []
+
+        if (value === '') {
+            io.to(socket.id).emit('usersIn', (friends))
+            return
+        }
+        
+        for (let user of users) {
+            if ((user.user).includes(value)) {
+                if (user.user !== socket.user) {
+                    let friend = {}
+                    friend.user = user.user
+    
+                    friends.push(friend)
+                    return
+                }
+                
+            }
+
+            if (value === user.id) {
+                if (user.user !== socket.user) {
+                    let friend = {} 
+                    friend.user = user.user
+    
+                    friends.push(friend)
+    
+                    io.to(socket.id).emit('usersIn', (friends))
+                    return
+                }
+            }
+        }
+
+        io.to(socket.id).emit('usersIn', (friends))
+    })
+
+
+    /* ---END ADDING FRIENDS--- */
+    /* **--------------------** */
+
+
+
+
+
     // user logout
     socket.on('logout', (logout) => { // kilépés esetén csak töröljük a users objectből a felhasználót, és ki is osztjuk a klienseknek broadcast segítségével
         for (let i = 0; i < users.length; i++) {
