@@ -86,6 +86,7 @@ io.on('connection', (socket) => {
                 break
             }
         }
+        console.log(`Kliens kijelentkezett: ${socket.id} (felhasználónév: ${socket.user})`)
         socket.broadcast.emit('user-left', {user: logout.user})
     }) 
 

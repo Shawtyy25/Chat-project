@@ -656,7 +656,7 @@ input:checked + .slider::before{
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: blue;
+    background-color: rgb(182, 177, 201);
 }
 
 
@@ -796,5 +796,87 @@ input:checked + .slider::before{
 }
 
 .prvtUserDiv i:hover {
+    color: red;
+}
+
+
+.friends-div{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(0, 0, 0);
+    max-width: 650px;
+    color: white;
+    height: 90%;
+    background-color: var(--text-color-light);
+    margin-left: 50px;
+    margin: 0 auto;
+}
+
+.friends-div h2{
+    text-align: center;
+    background-color: rgb(16, 17, 109);
+    width: 100%;
+}
+
+#friends{
+    flex-direction: column;
+    height: 93%;
+    padding: 30px;
+}
+
+#addFriendsBtn{
+    padding: 10px;
+    cursor: pointer;
+}
+
+#addFriends {
+    height: 93%;
+    flex-direction: column;
+    padding: 30px;
+    padding-top: 10px;
+    background-color: rgb(113, 113, 204);
+}
+
+#addFriendsInput{
+    padding: 5px;
+    outline: none;
+    width: 90%;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin: 20px auto 20px auto;
+}
+
+.friend{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border: 2px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.remove-friend:hover{
+    color: red;
+    cursor: pointer;
+}
+
+#sfRequest{
+    padding: 10px;
+    cursor: pointer;
+}
+
+#addFriendsBtn {
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-sf{
+    font-size: 1.5rem;
+    text-align: end;
+    cursor: pointer;
+}
+
+.close-sf:hover{
     color: red;
 }
