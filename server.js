@@ -92,11 +92,11 @@ io.on('connection', (socket) => {
         for (let user of users) {
             if ((user.user).includes(value)) {
                 if (user.user !== socket.user) {
+                    console.log(user.user);
                     let friend = {}
                     friend.user = user.user
     
                     friends.push(friend)
-                    return
                 }
                 
             }
@@ -113,8 +113,10 @@ io.on('connection', (socket) => {
                 }
             }
         }
-
+        
         io.to(socket.id).emit('usersIn', (friends))
+
+        
     })
 
 
