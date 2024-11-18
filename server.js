@@ -52,6 +52,7 @@ io.on('connection', (socket) => {
 
                 io.to(socket.id).emit('userJoined', {ifExist: userExists, ownSocket: socket.id, users: users})
                 socket.broadcast.emit('userJoinedToAll', {users: users, userID: socket.id})
+                console.log(users[users.length-1][0]);
             }
         }
 

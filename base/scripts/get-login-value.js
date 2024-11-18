@@ -1,7 +1,7 @@
 import { addUsers, addOwnUser } from "../functions/add-users.js"
 import { loggedInUserOutput } from "../functions/loggedIn-user.js"
 import { sendErrorMessage } from "./error-message.js"
-
+import { userJoinedNotice } from "../functions/user-joinedNotice.js"
 export function getValue(socket) {
     const users = document.getElementById('users')
     const main = document.querySelector('main')
@@ -38,6 +38,7 @@ export function getValue(socket) {
     socket.on('userJoinedToAll', (profiles) => {
         const own = document.querySelector('.own')
 
+        console.log(profiles.users);
 
         Array.from(users.children).forEach(child => { // azokat az elemeket törli ami nem OWN 
             if (child !== own) {
@@ -57,9 +58,8 @@ export function getValue(socket) {
             }
 
         }
-
-
     })
+
 
 }
 
