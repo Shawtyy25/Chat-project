@@ -22,6 +22,7 @@ export function checkFriendRequest(socket) {
     })
 
     receiveFriendRequest(socket)
+    /* declineUserFr(socket) */
 }
 
 function appendUser(userData) {

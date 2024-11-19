@@ -1,3 +1,5 @@
+import { acceptUserFr, declineUserFr } from "./friend-request-functions.js"
+
 function receiveFriendRequest(socket) {
     // template ===>
     /*
@@ -9,40 +11,54 @@ function receiveFriendRequest(socket) {
             </div>
         </div>
     */
-
     socket.on('receiveFR', (data) => {
-        const frDiv = document.getElementById('friendRequests')
+        if (data.status) {
+            const frDiv = document.getElementById('friendRequests')
+            const fr = document.createElement('div')
+            const fuser = document.createElement('div')
+            const user = document.createElement('h5')
+            const message = document.createElement('p')
+            const buttonsDiv = document.createElement('div')
+            const decline = document.createElement('button')
+            const accept = document.createElement('button')
+    
+            fr.classList.add('fRequest')
+            fr.classList.add(data.sender)
+    
+            fuser.classList.add('fUser')
 
+            user.innerText = `${data.sender}`
+            message.innerText = 'sent you a friend request'
+    
+            buttonsDiv.classList.add('frButtons')
+    
+            decline.classList.add('decline')
+            decline.type = 'button'
+            decline.innerText = 'Decline'
+    
+            accept.classList.add('accept')
+            accept.type = 'button'
+            accept.innerText = 'Accept'
+    
+            
+            buttonsDiv.appendChild(decline)
+            buttonsDiv.appendChild(accept)
 
-        const fr = document.createElement('div')
-        const user = document.createElement('p')
-        const buttonsDiv = document.createElement('div')
-        const decline = document.createElement('button')
-        const accept = document.createElement('button')
+            fuser.appendChild(user)
+            fuser.appendChild(message)
 
-        fr.classList.add('fRequest')
-        fr.classList.add(data.sender)
+            fr.appendChild(fuser)
+            fr.appendChild(buttonsDiv)
+    
+            frDiv.appendChild(fr)
 
-        user.innerText = `${data.sender} sent you a friend request`
-
-        buttonsDiv.classList.add('frButtons')
-
-        decline.classList.add('decline')
-        decline.type = 'button'
-        decline.innerText = 'Decline'
-
-        accept.classList.add('accept')
-        accept.type = 'button'
-        accept.innerText = 'Accept'
-
+            acceptUserFr()
+            declineUserFr()
+            
+        } else {
+            alert('Már barátok!')
+        }
         
-        buttonsDiv.appendChild(decline)
-        buttonsDiv.appendChild(accept)
-
-        fr.appendChild(user)
-        fr.appendChild(buttonsDiv)
-
-        frDiv.appendChild(fr)
     })
 }
 

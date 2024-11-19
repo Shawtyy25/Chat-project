@@ -14,4 +14,6 @@ export function friendAlerts() {
         afBtn.classList.remove('active-fx')
         afBtn.classList.add('hidden')
     })
+
+    
 }

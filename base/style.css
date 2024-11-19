@@ -971,3 +971,9 @@ input:checked + .slider::before{
 .close-fr:hover{
     color: rgb(255, 0, 0);
 }
+
+.fUser{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}

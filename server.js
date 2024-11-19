@@ -131,7 +131,7 @@ io.on('connection', (socket) => {
                     
                     friendsRequests.push(request)
 
-                    /* io.to(data.id).emit('receiveFR', { sender: socket.user , receiver: data.user}) */
+                    io.to(data.id).emit('receiveFR', { sender: socket.user , receiver: data.user, status: true})
 
                 } else {
 
@@ -140,27 +140,25 @@ io.on('connection', (socket) => {
                             (friend.sender === data.user || friend.sender === socket.user) &&
                             (friend.receiver === data.user || friend.receiver === socket.user)
                         ) {
-                            console.log(friend.sender, friend.receiver, '1.');
                             friendFound = true
                             break
                             
                         } else {
-                            console.log(friend.sender, friend.receiver, '2.');
                             friendFound = false
                             
                         }
                     }
 
                     if (friendFound) {
-                        console.log('már szerepel');
+                        
+                        io.to(socket.id).emit('receiveFR', { status: false })
                     } else {
-                        console.log('még nem szerepel');
-
                         let request = {}
                         request.sender = socket.user
                         request.receiver = data.user
 
                         friendsRequests.push(request)
+                        io.to(data.id).emit('receiveFR', { sender: socket.user , receiver: data.user, status: true})
                     }
                 }
                 

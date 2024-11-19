@@ -6,6 +6,7 @@ function sendFriendRequest(socket) {
     sendFr.forEach((btn, index) => {
         btn.addEventListener('click', () => {
             requestSending(socket, afUser[index].innerText)
+            
         }) 
     });
 
@@ -13,6 +14,7 @@ function sendFriendRequest(socket) {
 
 function requestSending(socket, user) {
     socket.emit('sendFR', user)
+    
 }
 
 
