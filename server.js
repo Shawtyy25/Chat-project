@@ -11,6 +11,7 @@ app.use(express.static('base'))
 app.use(bodyParser.json())
 const users = []
 const friendsRequests = []
+const userFriends = []
 
 let friendFound = false
 
@@ -150,7 +151,7 @@ io.on('connection', (socket) => {
                     }
 
                     if (friendFound) {
-                        
+
                         io.to(socket.id).emit('receiveFR', { status: false })
                     } else {
                         let request = {}
@@ -168,6 +169,18 @@ io.on('connection', (socket) => {
         
     })
 
+    socket.on('frDeclined', (sender) => {
+        for (let i = friendsRequests.length - 1; i >= 0; i--) {
+            if ((friendsRequests[i].sender === sender || friendsRequests[i].sender === socket.user) &&
+            (friendsRequests[i].receiver === sender || friendsRequests[i].receiver === socket.user)
+            ) { 
+                friendsRequests.splice(i, 1)
+            }
+        }
+        
+    })
+
+
     /* ---END ADDING FRIENDS--- */
     /* **--------------------** */
 
@@ -183,8 +196,15 @@ io.on('connection', (socket) => {
                 break
             }
         }
+
+        for (let i = friendsRequests.length -1; i >= 0; i--) {
+            if (friendsRequests[i].sender === socket.user || friendsRequests[i].receiver === socket.user) {
+                friendsRequests.splice(i, 1)
+            }
+        }
+        
         console.log(`Kliens kijelentkezett: ${socket.id} (felhasználónév: ${socket.user})`)
-        socket.broadcast.emit('user-left', {user: logout.user})
+        socket.broadcast.emit('user-left', {user: logout.user, forRequests: friendsRequests})
     }) 
 
     socket.on('disconnect', (data) => {
@@ -198,7 +218,19 @@ io.on('connection', (socket) => {
                     }
                 }
             }
-            socket.broadcast.emit('user-left', {user: socket.user})
+
+            for (let i = friendsRequests.length -1; i >= 0; i--) {
+                if (friendsRequests[i].sender === socket.user || friendsRequests[i].receiver === socket.user) {
+                    friendsRequests.splice(i, 1)
+                }
+            }
+
+            /* for (let i = userFriends.length -1; i >= 0; i--) {
+                if (userFriends[i].user1 === socket.user || userFriends[i].user2 === socket.user) {
+                    userFriends.splice(i, 1)
+                }
+            } */
+            socket.broadcast.emit('user-left', {user: socket.user, forRequests: friendsRequests})
         }
         
         

@@ -52,11 +52,11 @@ function receiveFriendRequest(socket) {
     
             frDiv.appendChild(fr)
 
-            acceptUserFr()
-            declineUserFr()
+            acceptUserFr(socket)
+            declineUserFr(socket)
             
         } else {
-            alert('Már barátok!')
+            alert('Éppen függőben van a barátkérelem!')
         }
         
     })

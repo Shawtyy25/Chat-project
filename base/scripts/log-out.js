@@ -35,7 +35,25 @@ function userDelete(socket) {
            }
         });
 
+        friendRequestDelete(lgUser)
     })
+}
+
+
+function friendRequestDelete(socket) {
+    const fr = document.querySelectorAll('.fRequest')
+    const friendRequests = document.getElementById('friendRequests')
+    const users = document.querySelectorAll('.fRequest h5') 
+
+    users.forEach((user, i) => {
+        console.log(user.innerText);
+        console.log(socket.user);
+        if (user.innerText === socket.user) {
+            console.log('Teszt');
+            friendRequests.removeChild(fr[i])
+        }
+    });
+    console.log(`Éppen függő barátkérelmek eltávolítva ${socket.user} távozása miatt!`);
 }
 
 export function runLogOut(socket) {
