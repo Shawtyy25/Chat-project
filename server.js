@@ -220,9 +220,15 @@ io.on('connection', (socket) => {
                 friendsRequests.splice(i, 1)
             }
         }
+
+        for (let i = userFriends.length -1; i >= 0; i--) {
+            if (userFriends[i].user1 === socket.user || userFriends[i].user2 === socket.user) {
+                userFriends.splice(i, 1)
+            }
+        }
         
         console.log(`Kliens kijelentkezett: ${socket.id} (felhasználónév: ${socket.user})`)
-        socket.broadcast.emit('user-left', {user: logout.user, forRequests: friendsRequests})
+        socket.broadcast.emit('user-left', {user: logout.user, forRequests: friendsRequests, forFriends: userFriends})
     }) 
 
     socket.on('disconnect', (data) => {
@@ -243,12 +249,12 @@ io.on('connection', (socket) => {
                 }
             }
 
-            /* for (let i = userFriends.length -1; i >= 0; i--) {
+            for (let i = userFriends.length -1; i >= 0; i--) {
                 if (userFriends[i].user1 === socket.user || userFriends[i].user2 === socket.user) {
                     userFriends.splice(i, 1)
                 }
-            } */
-            socket.broadcast.emit('user-left', {user: socket.user, forRequests: friendsRequests})
+            }
+            socket.broadcast.emit('user-left', {user: socket.user, forRequests: friendsRequests, forFriends: userFriends})
         }
         
         

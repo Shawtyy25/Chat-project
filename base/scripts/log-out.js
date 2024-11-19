@@ -36,6 +36,7 @@ function userDelete(socket) {
         });
 
         friendRequestDelete(lgUser)
+        friendListDelete(lgUser)
     })
 }
 
@@ -46,14 +47,26 @@ function friendRequestDelete(socket) {
     const users = document.querySelectorAll('.fRequest h5') 
 
     users.forEach((user, i) => {
-        console.log(user.innerText);
-        console.log(socket.user);
         if (user.innerText === socket.user) {
             console.log('Teszt');
             friendRequests.removeChild(fr[i])
         }
     });
     console.log(`Éppen függő barátkérelmek eltávolítva ${socket.user} távozása miatt!`);
+}
+
+function friendListDelete(socket) {
+    const friend = document.querySelectorAll('.friend')
+    const friends = document.getElementById('friends')
+    const users = document.querySelectorAll('.friend p')
+
+    users.forEach((user, i) => {
+        if (user.innerText === socket.user) {
+            friends.removeChild(friend[i])
+        }
+    });
+
+    console.log(`A baráti kapcsolat ${socket.user} és a többi kliens között megszűnt távozás miatt.`);
 }
 
 export function runLogOut(socket) {
