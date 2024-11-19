@@ -13,6 +13,8 @@ import { hidePrvtDiv } from "./scripts/close-private-div.js";
 import { addFriendsDiv } from "./scripts/addFriendScripts/add-friends-div.js";
 import { checkFriendRequest } from "./scripts/addFriendScripts/add-friends.js";
 import { closeSfRequest } from "./scripts/addFriendScripts/close-sf-request.js";
+import { friendAlerts } from "./scripts/addFriendScripts/alert-button.js";
+import { closeFriendRequests } from "./scripts/addFriendScripts/close-fr.js";
 
 
 // import { appearanceChecker } from "./scripts/appearance-mode.js" 
@@ -27,9 +29,6 @@ const channelInfo = document.querySelectorAll(".channel-info")
 const channelImg = document.querySelectorAll(".channel-img")
 const channelNames = ["1v1 chatroom", "macska", "kutya"]
 const channelText = document.querySelectorAll(".channel-text")
-
-
-
 
 let socket;
 
@@ -57,6 +56,10 @@ hidePrvtDiv()
 addFriendsDiv()
 
 closeSfRequest()
+
+friendAlerts()
+
+closeFriendRequests()
 
 user.addEventListener('input', () => {
     emptyError.style.display = 'none'

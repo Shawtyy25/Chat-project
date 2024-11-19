@@ -891,3 +891,83 @@ input:checked + .slider::before{
 .sfRequestBtn:hover{
     color: rgb(3, 255, 3);
 }
+
+.sfAlert{
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: end;
+    
+}
+
+.sfAlert::before{
+    cursor: pointer;
+}
+
+#friendRequestDiv{
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+}
+
+#friendRequests{
+    display: flex;
+    width: 90%;
+    
+}
+
+.fRequest{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(97, 102, 128);
+    padding: 10px 10px 5px 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.frButtons{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.decline{
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border: none;
+    width: 100%;
+    outline: 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.accept{
+    background-color: rgb(25, 177, 25);
+    color: white;
+    padding: 5px;
+    border: none;
+    outline: 0;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.close-fr{
+    text-align: end;
+    font-size: 1.5rem;
+    width: 90%;
+    margin-top: 10px;
+}
+
+.close-fr::before{
+    cursor: pointer;
+}
+
+.close-fr:hover{
+    color: rgb(255, 0, 0);
+}
