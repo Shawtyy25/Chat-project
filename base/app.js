@@ -17,6 +17,7 @@ import { friendAlerts } from "./scripts/addFriendScripts/alert-button.js";
 import { closeFriendRequests } from "./scripts/addFriendScripts/close-fr.js";
 
 
+
 // import { appearanceChecker } from "./scripts/appearance-mode.js" 
 
 

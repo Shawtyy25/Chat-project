@@ -1,12 +1,13 @@
+import { sendFriendRequest } from "./send-friend-request.js"
+import { receiveFriendRequest } from "./receive-friend-request.js"
+
 export function checkFriendRequest(socket) {
     // input mezo vizsgálata
     const afInput = document.getElementById('addFriendsInput')
     const afUsers = document.getElementById('afUsers')
 
     afInput.addEventListener('input', () => {
-        socket.emit('requestForFriends', (afInput.value))
-
-        
+        socket.emit('requestForFriends', (afInput.value))  
     })
 
     socket.on('usersIn', (users) => {
@@ -15,10 +16,12 @@ export function checkFriendRequest(socket) {
             users.forEach(user => {
                 appendUser(user)
             });
-        }
-        
+            
+            sendFriendRequest(socket)
+        }        
     })
 
+    receiveFriendRequest(socket)
 }
 
 function appendUser(userData) {

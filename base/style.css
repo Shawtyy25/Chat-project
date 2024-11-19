@@ -912,7 +912,7 @@ input:checked + .slider::before{
 #friendRequests{
     display: flex;
     width: 90%;
-    
+    flex-direction: column;
 }
 
 .fRequest{

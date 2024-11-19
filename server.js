@@ -10,6 +10,9 @@ const bodyParser = require('body-parser')
 app.use(express.static('base'))
 app.use(bodyParser.json())
 const users = []
+const friendsRequests = []
+
+let friendFound = false
 
 
 
@@ -92,7 +95,6 @@ io.on('connection', (socket) => {
         for (let user of users) {
             if ((user.user).includes(value)) {
                 if (user.user !== socket.user) {
-                    console.log(user.user);
                     let friend = {}
                     friend.user = user.user
     
@@ -119,6 +121,54 @@ io.on('connection', (socket) => {
         
     })
 
+    socket.on('sendFR', (user) => {
+        for (let data of users) {
+            if (user === data.user) {
+                if (friendsRequests.length === 0) {
+                    let request = {}
+                    request.sender = socket.user
+                    request.receiver = data.user
+                    
+                    friendsRequests.push(request)
+
+                    /* io.to(data.id).emit('receiveFR', { sender: socket.user , receiver: data.user}) */
+
+                } else {
+
+                    for (let friend of friendsRequests) {
+                        if (
+                            (friend.sender === data.user || friend.sender === socket.user) &&
+                            (friend.receiver === data.user || friend.receiver === socket.user)
+                        ) {
+                            console.log(friend.sender, friend.receiver, '1.');
+                            friendFound = true
+                            break
+                            
+                        } else {
+                            console.log(friend.sender, friend.receiver, '2.');
+                            friendFound = false
+                            
+                        }
+                    }
+
+                    if (friendFound) {
+                        console.log('már szerepel');
+                    } else {
+                        console.log('még nem szerepel');
+
+                        let request = {}
+                        request.sender = socket.user
+                        request.receiver = data.user
+
+                        friendsRequests.push(request)
+                    }
+                }
+                
+            }
+        }
+
+        
+    })
 
     /* ---END ADDING FRIENDS--- */
     /* **--------------------** */
