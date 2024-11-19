@@ -1,9 +1,14 @@
 function acceptUserFr(socket) {
     const accept = document.querySelectorAll('.accept')
+    const fr = document.querySelectorAll('.fRequest')
+    const users = document.querySelectorAll('.fUser h5')
+    const fRequests = document.getElementById('friendRequests')
 
     accept.forEach((btn, i) => {
         btn.addEventListener('click', () => {
             // todo
+            socket.emit('frAccepted', (users[i].innerText))
+            fRequests.removeChild(fr[i])
         })
     });
 }

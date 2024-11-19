@@ -15,6 +15,7 @@ import { checkFriendRequest } from "./scripts/addFriendScripts/add-friends.js";
 import { closeSfRequest } from "./scripts/addFriendScripts/close-sf-request.js";
 import { friendAlerts } from "./scripts/addFriendScripts/alert-button.js";
 import { closeFriendRequests } from "./scripts/addFriendScripts/close-fr.js";
+import { friendsDivAppend } from "./scripts/adding-friends.js";
 
 
 
@@ -81,6 +82,8 @@ login.addEventListener('click', () => {
 
         sendToUser(socket)
         checkFriendRequest(socket)
+
+        friendsDivAppend(socket)
 
     } else {
         emptyError.style.display = 'block'

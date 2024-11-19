@@ -180,6 +180,24 @@ io.on('connection', (socket) => {
         
     })
 
+    socket.on('frAccepted', (sender) => {
+        const friend = {}
+        friend.user1 = sender
+        friend.user2 = socket.user
+
+        userFriends.push(friend)
+
+        io.to(socket.id).emit('friendAddedReq', { user: sender })
+
+        users.forEach(user => {
+            if (user.user === sender) {
+                socket.to(user.id).emit('friendAddedRes', { user: socket.user })
+            }
+        });
+
+        console.log(`Sikeresen barátkozott ${socket.user} és ${sender}`);
+    })
+
 
     /* ---END ADDING FRIENDS--- */
     /* **--------------------** */
