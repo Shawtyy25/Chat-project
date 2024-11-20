@@ -1,6 +1,7 @@
 import { sendFriendRequest } from "./send-friend-request.js"
 import { receiveFriendRequest } from "./receive-friend-request.js"
 
+
 export function checkFriendRequest(socket) {
     // input mezo vizsgálata
     const afInput = document.getElementById('addFriendsInput')
@@ -22,7 +23,6 @@ export function checkFriendRequest(socket) {
     })
 
     receiveFriendRequest(socket)
-    /* declineUserFr(socket) */
 }
 
 function appendUser(userData) {
