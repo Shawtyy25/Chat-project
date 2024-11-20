@@ -9,6 +9,7 @@ import { channelImgEvent } from "./scripts/channel-img-event.js"
 import { profileSettingsAdjustal } from "./scripts/profile-settings-adjustal.js"
 import { channelMiddleAdjustal } from "./scripts/channel-middle-adjustal.js"
 // import { appearanceChecker } from "./scripts/appearance-mode.js" 
+import { appearanceButton } from "./scripts/appearance-button.js";
 
 const channels = document.querySelector(".channels")
 var src = "./sleeping.png"
@@ -27,7 +28,7 @@ channelImgEvent()
 
 
 profileSettingsAdjustal()
-
+appearanceButton()
 
 channelMiddleAdjustal()
 

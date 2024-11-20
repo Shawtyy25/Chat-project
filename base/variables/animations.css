@@ -95,3 +95,73 @@
         transform: translateY(0);
     }
 }
+
+.themeDark{
+    animation-name: darkTheme;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes darkTheme {
+    0%{
+        background: rgb(55, 165, 243);
+    }
+    20%{
+        background: linear-gradient(90deg,rgb(10, 10, 16), rgb(28, 36, 79));
+    }
+    100%{
+        background: linear-gradient(90deg,rgb(10, 10, 16), rgb(28, 36, 79));
+    }
+}
+
+.themeLight{
+    animation-name: lightTheme;
+    animation-duration: .4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+}
+
+@keyframes lightTheme {
+    0%{
+        background: linear-gradient(90deg,rgb(10, 10, 16), rgb(28, 36, 79));
+    }
+    20%{
+        background: rgb(55, 165, 243);
+    }
+    100%{
+        background: rgb(55, 165, 243);
+    }
+}
+
+.op-backwards{
+    animation-name: op-fw;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes op-fw {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.op-forwards{
+    animation-name: op-bw;
+    animation-duration: .4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+}
+
+@keyframes op-bw {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
