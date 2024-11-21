@@ -4,10 +4,11 @@ export function addFriendsDiv() {
     const addFriends = document.getElementById('addFriends')
 
     afBtn.addEventListener('click', () => {
-            addFriends.classList.add('active-fx')
-            addFriends.classList.remove('hidden')
+        addFriends.classList.remove('hidden')
+        addFriends.classList.add('active-fx')
 
-            friends.classList.remove('active-fx')
-            friends.classList.add('hidden')
-        })
+
+        friends.classList.remove('active-fx')
+        friends.classList.add('hidden')
+    })
 }

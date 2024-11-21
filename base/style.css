@@ -896,7 +896,6 @@ input:checked + .slider::before{
     margin-bottom: 20px;
     font-size: 1.5rem;
     text-align: end;
-    background-color: blue;
 }
 
 .sfAlert::before{
@@ -994,3 +993,6 @@ input:checked + .slider::before{
     width: 100%;
     justify-content: center;
 }
+
+
+
