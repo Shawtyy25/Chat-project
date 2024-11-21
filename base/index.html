@@ -91,9 +91,22 @@
                         </label>
 
                         <div class="friends-div">
-                            <h2>Friends</h2>
+                            <div class="friendsTabSwitcher">
+                                <button id="friendsTab">
+                                    <i class="fa-solid fa-user-group"></i>
+                                    <h3>Friends</h3>
+                                </button>
+
+                                <button id="addFriendsBtn" class="active-fx">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                    <h3>Add Friends</h3>
+                                </button>
+                                
+                            </div>
+                            
+
+
                             <div id='addFriends' class="hidden">
-                                <i class="fa-solid fa-circle-xmark close-sf"></i>
                                 <input type="text" name="addFriendsInput" id="addFriendsInput"
                                     placeholder="Enter a Username or Friend code">
                                 <div id="afUsers"> <!-- IDE KERULNEK A BARÁTOK AKIKRE RÁKERESÜNK --></div>
@@ -104,7 +117,6 @@
                             <!-- *********************************************** -->
 
                             <div id="friendRequestDiv" class="hidden"> 
-                                <i class="fa-solid fa-circle-xmark close-fr"></i>
                                 <div id="friendRequests">
                                     
                                 </div>
@@ -119,10 +131,6 @@
                                     <i class="fa-solid fa-user-minus remove-friend"></i>
                                 </div> -->
                             </div>
-                            <button id="addFriendsBtn" class="active-fx">
-                                <i class="fa-solid fa-user-plus"></i>
-                                <h3>Add Friends</h3>
-                            </button>
                         </div>
                     </div>
                 </div>

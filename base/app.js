@@ -16,6 +16,7 @@ import { closeSfRequest } from "./scripts/addFriendScripts/close-sf-request.js";
 import { friendAlerts } from "./scripts/addFriendScripts/alert-button.js";
 import { closeFriendRequests } from "./scripts/addFriendScripts/close-fr.js";
 import { friendsDivAppend } from "./scripts/adding-friends.js";
+import { friendsTab } from "./scripts/addFriendScripts/friends-tab.js";
 
 
 
@@ -48,7 +49,6 @@ listSelect(channelImg, channelNames, channelText, channelInfo)
 
 channelImgEvent()
 
-
 profileSettingsAdjustal()
 
 channelMiddleAdjustal()
@@ -57,11 +57,9 @@ hidePrvtDiv()
 
 addFriendsDiv()
 
-closeSfRequest()
-
 friendAlerts()
 
-closeFriendRequests()
+friendsTab()
 
 user.addEventListener('input', () => {
     emptyError.style.display = 'none'

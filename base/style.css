@@ -827,6 +827,7 @@ input:checked + .slider::before{
 #addFriendsBtn{
     padding: 10px;
     cursor: pointer;
+    width: 100%;
 }
 
 #addFriends {
@@ -895,7 +896,7 @@ input:checked + .slider::before{
     margin-bottom: 20px;
     font-size: 1.5rem;
     text-align: end;
-    
+    background-color: blue;
 }
 
 .sfAlert::before{
@@ -975,4 +976,21 @@ input:checked + .slider::before{
     display: flex;
     gap: 5px;
     align-items: center;
+}
+
+#friendsTab{
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.friendsTabSwitcher{
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
 }

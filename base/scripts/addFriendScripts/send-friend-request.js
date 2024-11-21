@@ -8,7 +8,7 @@ function sendFriendRequest(socket) {
             requestSending(socket, afUser[index].innerText)
             
         }) 
-    });
+    })
 
 }
 
