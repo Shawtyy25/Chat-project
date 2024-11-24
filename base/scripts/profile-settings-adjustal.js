@@ -9,7 +9,7 @@ export function profileSettingsAdjustal(){
         
         profileSettings.classList.add("profile-forwards")
         profileSettings.addEventListener("animationend", () =>{
-            profileSettings.classList.add("active-bk")
+            profileSettings.classList.add("active-fx")
             profileSettings.classList.remove("hidden")
         })
     })
@@ -19,7 +19,7 @@ export function profileSettingsAdjustal(){
         profileSettings.classList.add("profile-backwards")
         profileSettings.addEventListener("animationend", () =>{
             profileSettings.classList.add("hidden")
-            profileSettings.classList.remove("active-bk")  
+            profileSettings.classList.remove("active-fx")  
         })
     })
 }

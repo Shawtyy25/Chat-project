@@ -1,5 +1,3 @@
-// import { appearanceChecker, appearanceCheckerSender } from "./appearance-mode.js" 
-// import { rightSideAppear } from "./right-side-appear.js"
 import { emojiRandomizer } from "./emoji-randomizer.js"
 
 
