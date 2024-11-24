@@ -14,10 +14,8 @@ function mediumScreen(width){
         leftSide.style.left = "0rem"
         leftSide.style.zIndex = "50000"
        
-        
-      
-        
 
+        
         const breakpoint = document.querySelector(".breakpoint")
         breakpoint.addEventListener("click", () =>{
             leftSide.style.left = "-5rem"

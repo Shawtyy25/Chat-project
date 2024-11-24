@@ -937,7 +937,7 @@ body{
     display: flex;
     flex-direction: column;
     border: 2px solid rgb(0, 0, 0);
-    max-width: 650px;
+    width: 650px;
     color: white;
     height: 90%;
     background-color: var(--text-color-light);
