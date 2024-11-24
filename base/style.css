@@ -209,7 +209,7 @@ label .moon{
     position: relative;
     width: 15rem;
     display: flex;
-}
+} 
 
 .wrapperDark .button a {
     background: var(--button-bg-dark);
