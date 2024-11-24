@@ -26,12 +26,18 @@ function messageEmit(socket) {
 function getMessage(socket) {
     socket.on('get-message', (data) => {
         const chat = document.getElementById('chat')
+        const messageDiv = document.createElement('div')
+        const user = document.createElement('h4')
         const message = document.createElement('p')
         const middle = document.querySelector('.middle-text')
 
-        message.innerHTML = `${data.sender}: <br> ${data.msg}` 
+        messageDiv.classList.add('message-div')
+        user.innerText = data.sender
+        message.innerText = data.msg
 
-        chat.appendChild(message) // kliens oldalon megjelenik az üzenet
+        messageDiv.appendChild(user)
+        messageDiv.appendChild(message)
+        chat.appendChild(messageDiv) // kliens oldalon megjelenik az üzenet
         middle.scrollTo(0, middle.scrollHeight)
     })
 }
