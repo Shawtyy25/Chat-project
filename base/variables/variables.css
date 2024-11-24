@@ -30,9 +30,18 @@
     --channel-bg-light: rgb(133, 133, 133);
 
     --right-side-width: 15rem;
+
+    --login-box-light: rgba(255, 255, 255, 0.8);
+    --login-box-dark: rgba(50, 50, 50, 0.8);
+    --text-color-light: #333;
+    --text-color-dark: #fff;
+    --button-bg-light: #4a6feb;
+    --button-bg-dark: #7080ff;
+    --button-hover-light: #6c89f0;
+    --button-hover-dark: #8795ff;
+    --theme-selector-light: #fff;
+    --theme-selector-dark: #242424;
 }
-
-
 
 .active-bk{
     display: block;
