@@ -16,8 +16,6 @@ const userFriends = []
 let friendFound = false
 
 
-
-
 io.on('connection', (socket) => {
     let userExists = false
 
