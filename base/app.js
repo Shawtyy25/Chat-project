@@ -1,3 +1,4 @@
+import { responsibility } from "./responsibility/responsibility.js";
 import { getValue } from "./scripts/get-login-value.js";
 import { runLogOut } from "./scripts/log-out.js";
 import { sendToUser } from "./scripts/private-message.js";
@@ -14,7 +15,7 @@ import { appearanceButton } from "./scripts/appearance-button.js";
 const channels = document.querySelector(".channels")
 var src = "./sleeping.png"
 
-leftSideAppender(channels, "channel-item", "channel-img", src, "channel-info", "channel-text", 5)
+leftSideAppender(channels, "channel-item", "channel-img", src, "channel-info", "channel-text", 1)
 
 const channelInfo = document.querySelectorAll(".channel-info")
 const channelImg = document.querySelectorAll(".channel-img")
@@ -64,3 +65,5 @@ login.addEventListener('click', () => {
 })
 
 // appearanceChecker()
+
+responsibility()

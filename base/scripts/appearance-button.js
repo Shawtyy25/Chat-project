@@ -7,7 +7,7 @@ export function appearanceButton(){
     const stars = document.querySelectorAll(".star")
     let toggle = false
     
-    slider.style.boxShadow = "0px 0px 5px rgb(245, 242, 50)"
+    slider.classList.add("slider-light")
 
     circles.forEach((element) =>{
         element.classList.add("op-hidden")
@@ -23,9 +23,9 @@ export function appearanceButton(){
         if (toggle === false){
             switchBtn.classList.remove("themeLight")
             switchBtn.classList.add("themeDark")
-            slider.style.boxShadow = "0px 0px 5px rgb(255, 255, 255)"
-            slider.style.transform = "translateX(56px)"
-            slider.style.background = "rgb(230, 230, 230)"
+           
+            slider.classList.remove("slider-light")
+            slider.classList.add("slider-dark")
             
             clouds.forEach((element) =>{
                 element.classList.add("op-forwards")
@@ -62,9 +62,9 @@ export function appearanceButton(){
         } else{
             switchBtn.classList.remove("themeDark")
             switchBtn.classList.add("themeLight")
-            switchBtn.style.background = ""
-            slider.style.transform = "translateX(0px)"
-            slider.style.background = ""
+
+            slider.classList.remove("slider-dark")
+            slider.classList.add("slider-light")
 
             hills[0].classList.remove("op-backwards")
             hills[0].classList.add("op-forwards")

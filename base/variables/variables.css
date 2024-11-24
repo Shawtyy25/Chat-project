@@ -12,6 +12,11 @@
     --side-bg-color-light: rgb(192, 192, 192);
     --side-color-dark: white;
     --side-color-light: black;
+    
+    --user-bg-color-hover: rgb(175, 175, 175);
+    
+    --logout-bg-color: rgb(175, 175, 175);
+    --logout-bg-color-hover: rgb(163, 163, 163);
 
     --side-img-scale: 4rem;
 
@@ -76,4 +81,16 @@
 
 .op-hidden{
     opacity: 0 !important;
+}
+
+.slider-dark{
+    box-shadow: 0px 0px 5px rgb(255, 255, 255);
+    transform: translateX(56px);
+    background: rgb(230, 230, 230);
+}
+
+.slider-light{
+    box-shadow: 0px 0px 5px rgb(245, 242, 50);
+    transform: translateX(0px); 
+    background-color: rgb(245, 242, 50);
 }

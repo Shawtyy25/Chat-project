@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url("./variables/variables.css");
 @import url("./variables/animations.css");
+@import url("./responsibility/responsibility.css");
 
 *{
     box-sizing: border-box;
@@ -25,51 +26,6 @@ body{
     position: relative;
 }
 
-/* .switch{
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    width: 60px;
-    height: 34px;
-}
-
-.switch input{
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: green;
-    transition: .4s;
-    border-radius: 34px;
-}
-
-.slider::before{
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    top: 4px;
-    background-color: greenyellow;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:checked + .slider::before{
-    transform: translateX(26px);
-} */
-
 .switch{
     position: relative;
     display: inline-block;
@@ -78,9 +34,8 @@ input:checked + .slider::before{
     height: 34px;
     border-radius: 34px;
     background: rgb(55, 165, 243);
-    /* background: linear-gradient(90deg,rgb(10, 10, 16), rgb(28, 36, 79)); */
     overflow: hidden;
-    scale: 4;
+    scale: 1;
     box-shadow: 0px 0px 5px rgb(63, 63, 63) inset;
 }
 
@@ -90,7 +45,6 @@ input:checked + .slider::before{
     width: 26px;
     left: 4px;
     top: 4px;
-    background-color: rgb(245, 242, 50);
     transition: .4s;
     border-radius: 50%;
 }
@@ -391,6 +345,7 @@ input:checked + .slider::before{
 }
 
 .middle-text{
+    padding: .5rem;
     overflow-y: scroll;
 }
 
@@ -452,16 +407,31 @@ input:checked + .slider::before{
     text-align: justify;
 }
 
-.users-div{
-    background-color: blue;
+.users-div p{
+    background: transparent;
+    padding: .3rem .5rem;
+    /* margin: .7rem; */
+    /* border-radius: .3rem; */
+    cursor: pointer;
+}
+
+.users-div p:hover{
+    background: var(--user-bg-color-hover);
 }
 
 #logout{
     cursor: pointer;
     border: 0;
+    padding: .5rem 1rem;
+    background: var(--logout-bg-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0px 0px 5px rgb(158, 158, 158) inset;
 }
 
-
+#logout:hover{
+    background: var(--logout-bg-color-hover);
+}
 
 .introduction-parent{
     background-color: var(--main-bg-color-light);
@@ -476,7 +446,17 @@ input:checked + .slider::before{
     align-items: center;
 }
 
+.breakpoint{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
 
+.breakpointasd{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+}
 
 .left-side, .right-side, .introduction, .middle-input-parent > *, #chatbox{
     background-color: var(--side-bg-color-light);

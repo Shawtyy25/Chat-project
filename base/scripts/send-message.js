@@ -28,7 +28,7 @@ function getMessage(socket) {
         const chat = document.getElementById('chat')
         const message = document.createElement('p')
 
-        message.innerText = `${data.sender}: ${data.msg}` 
+        message.innerHTML = `${data.sender}: <br> ${data.msg}` 
 
         chat.appendChild(message) // kliens oldalon megjelenik az üzenet
         window.scrollTo(0, document.body.scrollHeight)
