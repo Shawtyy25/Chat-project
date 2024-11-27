@@ -203,7 +203,13 @@ io.on('connection', (socket) => {
     /* **--------------------** */
 
 
-
+    socket.on('profile-data-req', () => {
+        for(let i = 0; i < users.length; i++) {
+            if (users[i].id === socket.id) {
+                io.to(socket.id).emit('profile-data-res', { id: socket.id, username: users[i].user})
+            }
+        }
+    })
 
 
     // user logout

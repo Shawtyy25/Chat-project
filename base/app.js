@@ -18,6 +18,7 @@ import { friendsDivAppend } from "./scripts/adding-friends.js";
 import { friendsTab } from "./scripts/addFriendScripts/friends-tab.js";
 // import { appearanceChecker } from "./scripts/appearance-mode.js" 
 import { appearanceButton } from "./scripts/appearance-button.js";
+import { switchSettingsTab } from "./scripts/switch-settings-tab.js";
 
 const channels = document.querySelector(".channels")
 var src = "./sleeping.png"
@@ -57,6 +58,7 @@ friendAlerts()
 
 friendsTab()
 
+
 user.addEventListener('input', () => {
     emptyError.style.display = 'none'
     loginError.style.display = 'none'
@@ -79,6 +81,7 @@ login.addEventListener('click', () => {
 
         friendsDivAppend(socket)
 
+        switchSettingsTab(socket)
 
     } else {
         emptyError.style.display = 'block'

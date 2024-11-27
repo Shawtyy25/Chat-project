@@ -781,7 +781,8 @@ body{
     width: 650px;
     color: white;
     height: 90%;
-    gap: 10px;
+    background-color: #212138;
+    border-radius: 20px;
 }
 
 .settings-menu{
@@ -789,8 +790,13 @@ body{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 150px;
+    width: 200px;
     padding: 5px;
+}
+
+.settings h2{
+    text-align: center;
+    padding: 10px 10px 0px 10px;
 }
 
 .settings-menu hr{
@@ -819,6 +825,35 @@ body{
 .settings-menu section:hover{
     background-color: rgb(107, 107, 107);
 }
+
+.settings-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.settings-header{
+    text-align: center;
+    background-color: #8099ad;
+    width: 100%;
+}
+
+.settings-header h1{
+    width: 100%;
+}
+
+.settings-options {
+    padding: 10px;
+}
+
+.start-options-div{
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* SETTINGS END----------------------------- */
+
 
 
 .middle-content{
