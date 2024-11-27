@@ -852,6 +852,39 @@ body{
     margin-top: 20px;
 }
 
+.profile-options-div{
+    height: 100%;
+}
+
+.pfp {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.pfp img{
+    border-radius: 50%;
+}
+
+.profile-options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+.profile-data{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+}
+
+.profile-data div{
+    border-bottom: 2px solid rgb(165, 162, 162);
+    padding: 10px;
+}
+
 /* SETTINGS END----------------------------- */
 
 
