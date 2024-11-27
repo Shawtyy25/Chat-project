@@ -13,14 +13,9 @@ import { Themes } from "./scripts/login.js";
 import { hidePrvtDiv } from "./scripts/close-private-div.js";
 import { addFriendsDiv } from "./scripts/addFriendScripts/add-friends-div.js";
 import { checkFriendRequest } from "./scripts/addFriendScripts/add-friends.js";
-import { closeSfRequest } from "./scripts/addFriendScripts/close-sf-request.js";
 import { friendAlerts } from "./scripts/addFriendScripts/alert-button.js";
-import { closeFriendRequests } from "./scripts/addFriendScripts/close-fr.js";
 import { friendsDivAppend } from "./scripts/adding-friends.js";
 import { friendsTab } from "./scripts/addFriendScripts/friends-tab.js";
-
-
-
 // import { appearanceChecker } from "./scripts/appearance-mode.js" 
 import { appearanceButton } from "./scripts/appearance-button.js";
 
@@ -84,6 +79,7 @@ login.addEventListener('click', () => {
 
         friendsDivAppend(socket)
 
+
     } else {
         emptyError.style.display = 'block'
         user.classList.add('inputError')   
@@ -93,4 +89,4 @@ login.addEventListener('click', () => {
 
 // appearanceChecker()
 
-responsibility()
+/* responsibility() */
