@@ -468,7 +468,7 @@ body{
 .switch{
     position: relative;
     display: inline-block;
-    cursor: pointer;
+    cursor: pointer;    
     width: 90px;
     height: 34px;
     border-radius: 34px;
@@ -747,6 +747,7 @@ body{
 .profile{
     padding: 1rem;
     width: 100%;
+
 }
 
 .profile .profile-pic{
@@ -764,6 +765,59 @@ body{
     bottom: 0;
     left: 0;
     background-color: rgb(182, 177, 201);
+    justify-content: space-around;
+    align-items: center;
+}
+
+.exit{
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    font-size: 1.5rem;
+}
+
+.settings{
+    display: flex;
+    width: 650px;
+    color: white;
+    height: 90%;
+    gap: 10px;
+}
+
+.settings-menu{
+    background-color: #575656;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 150px;
+    padding: 5px;
+}
+
+.settings-menu hr{
+    width: 100%;
+}
+.settings-scroll{
+    overflow-y: scroll;
+    height: 100%;
+}
+.settings-scroll::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+}
+
+.settings-scroll::-webkit-scrollbar-thumb{
+    background-color: #212138;
+    border-radius: .3rem;
+}
+
+
+.settings-menu section{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.settings-menu section:hover{
+    background-color: rgb(107, 107, 107);
 }
 
 
@@ -937,12 +991,12 @@ body{
     display: flex;
     flex-direction: column;
     border: 2px solid rgb(0, 0, 0);
+    box-shadow: 0 0 10px black;
     width: 650px;
     color: white;
     height: 90%;
     background-color: var(--text-color-light);
-    margin-left: 50px;
-    margin: 0 auto;
+    border-radius: .3rem;
 }
 
 .friends-div h2{
