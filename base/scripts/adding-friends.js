@@ -1,3 +1,5 @@
+
+
 function friendsDivAppend(socket) {
     /* 
     <div class="friend">
@@ -15,6 +17,7 @@ function friendsDivAppend(socket) {
         console.log(`Sikeresen összebarátkoztál ${user.user} felhasználóval!`);
         appender(user)
     })
+
 }
 
 function appender(user) {

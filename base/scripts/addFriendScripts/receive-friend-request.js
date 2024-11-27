@@ -39,7 +39,6 @@ function receiveFriendRequest(socket) {
 
             frDiv.appendChild(fr);
 
-
             // gombok eseménykezelése + backend
             accept.addEventListener('click', () => {
                 socket.emit('frAccepted', user.innerText);
