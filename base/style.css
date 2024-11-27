@@ -9,6 +9,16 @@
     padding: 0;
 }
 
+::-webkit-scrollbar{
+    background-color: transparent;
+    width: .5rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgb(150, 150, 150);
+    border-radius: .3rem;
+}
+
 body {
     font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
     transition: background-color 0.5s, color 0.5s;
@@ -798,7 +808,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 1rem 1rem 1rem;
+    margin: .5rem 1rem .5rem 1rem;
     border-radius: 1rem;
 }
 
@@ -854,25 +864,26 @@ body{
 }
 
 .users-div p:hover{
-    background: var(--user-bg-color-hover);
+    background: var(--user-bg-color-dark-hover);
 }
 
 #logout{
     cursor: pointer;
     border: 0;
     padding: .5rem 1rem;
-    background: var(--logout-bg-color);
+    background: var(--logout-bg-color-dark);
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0px 0px 5px rgb(158, 158, 158) inset;
+    box-shadow: 0px 0px 5px var(--box-shadow-dark) inset;
+    color: var(--logout-color-dark);
 }
 
 #logout:hover{
-    background: var(--logout-bg-color-hover);
+    background: var(--logout-bg-color-dark-hover);
 }
 
 .introduction-parent{
-    background-color: var(--main-bg-color-light);
+    background-color: var(--main-bg-color-dark);
     position: absolute;
     z-index: 2000;
     left: var(--left-side-width);
@@ -897,15 +908,18 @@ body{
 }
 
 .left-side, .right-side, .introduction, .middle-input-parent > *, #chatbox{
-    background-color: var(--side-bg-color-light);
+    background-color: var(--side-bg-color-dark);
+    color: var(--side-color-dark);
 }
 
 .middle{
-    background-color: var(--main-bg-color-light);
+    background-color: var(--main-bg-color-dark);
+    color: var(--main-color-dark);
 }
 
 .profile, .channel-info{
-    background-color: var(--channel-bg-light);
+    background-color: var(--channel-bg-dark);
+    color: var(--side-color-dark);
 }
 
 .prvtUserDiv {
