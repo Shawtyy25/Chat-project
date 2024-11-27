@@ -24,6 +24,8 @@
     --channel-bg-light: rgb(133, 133, 133);
 
     --right-side-width: 15rem;
+
+    --top-section-height: 3rem;
 }
 
 .active-bk{
@@ -93,4 +95,29 @@
     box-shadow: 0px 0px 5px rgb(245, 242, 50);
     transform: translateX(0px); 
     background-color: rgb(245, 242, 50);
+}
+
+.ls-break{
+    position: absolute;
+    z-index: 50000;
+}
+
+.rs-break, .rs-active{
+    width: 100% !important;
+    height: 100%;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+
+.rs-break{
+    z-index: -1;
+}
+
+.rs-active{
+   z-index: 0;
+}
+
+.users-active{
+    z-index: 2000 !important;
 }
