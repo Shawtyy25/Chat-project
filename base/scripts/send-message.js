@@ -27,11 +27,12 @@ function getMessage(socket) {
     socket.on('get-message', (data) => {
         const chat = document.getElementById('chat')
         const messageDiv = document.createElement('div')
-        const user = document.createElement('h4')
+        const user = document.createElement('p')
         const message = document.createElement('p')
         const middle = document.querySelector('.middle-text')
 
         messageDiv.classList.add('message-div')
+        user.classList.add('msg-div-sender')
         user.innerText = data.sender
         message.innerText = data.msg
 

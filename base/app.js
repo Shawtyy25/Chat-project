@@ -47,7 +47,6 @@ const loginError = document.getElementById('login-error')
 
 listSelect(channelImg, channelNames, channelText, channelInfo)
 
-
 channelImgEvent()
 
 profileSettingsAdjustal()
