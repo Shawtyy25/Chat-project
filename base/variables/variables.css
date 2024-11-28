@@ -39,6 +39,8 @@
 
     --right-side-width: 15rem;
 
+    --top-section-height: 3rem;
+
     --login-box-light: rgba(255, 255, 255, 0.8);
     --login-box-dark: rgba(50, 50, 50, 0.8);
     --text-color-light: #333;
@@ -119,6 +121,32 @@
     transform: translateX(0px); 
     background-color: rgb(245, 242, 50);
 }
+
+.ls-break{
+    position: absolute;
+    z-index: 50000;
+}
+
+.rs-break, .rs-active{
+    width: 100% !important;
+    height: 100%;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+
+.rs-break{
+    z-index: -1;
+}
+
+.rs-active{
+   z-index: 0;
+}
+
+.users-active{
+    z-index: 2000 !important;
+}
+
 
 .selected-option{
     background-color: gray;

@@ -902,7 +902,6 @@ body{
 .middle-content{
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     overflow: hidden;
 }
@@ -980,8 +979,6 @@ body{
 .users-div p{
     background: transparent;
     padding: .3rem .5rem;
-    /* margin: .7rem; */
-    /* border-radius: .3rem; */
     cursor: pointer;
 }
 
@@ -1019,14 +1016,29 @@ body{
 
 .breakpoint{
     font-size: 2rem;
-    margin-bottom: 2rem;
+    cursor: pointer;
 }
 
-.breakpointasd{
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+.bk-icon{
+    width: 5rem;
+    height: 100%;
+    background: var(--channel-bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top{
+    height: var(--top-section-height);
+    background: var(--channel-bg-light);
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-list{
     cursor: pointer;
+    z-index: -1;
+    font-size: 1.5rem;
 }
 
 .left-side, .right-side, .introduction, .middle-input-parent > *, #chatbox{
@@ -1040,8 +1052,7 @@ body{
 }
 
 .profile, .channel-info{
-    background-color: var(--channel-bg-dark);
-    color: var(--side-color-dark);
+    background-color: var(--channel-bg-light);
 }
 
 .prvtUserDiv {

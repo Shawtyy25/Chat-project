@@ -1,30 +1,102 @@
+import { classListAdjustal } from "../functions/class-adjustal.js"
+
 export function responsibility(){
     const media1200px = matchMedia("(max-width: 1200px)")
     mediumScreen(media1200px)
     media1200px.addEventListener("change", mediumScreen)
+
+    const media800px = matchMedia("(max-width: 800px)")
+    smallScreen(media800px)
+    media800px.addEventListener("change", smallScreen)
 }
 
 function mediumScreen(width){
     const leftSide = document.querySelector(".left-side")
-    const middle = document.querySelector(".middle")
+    
+    let toggle = false
 
     if (width.matches){
-        console.log("cica")
-        leftSide.style.position = "absolute"
-        leftSide.style.left = "0rem"
-        leftSide.style.zIndex = "50000"
-       
-
+        leftSide.classList.add("ls-break")
         
         const breakpoint = document.querySelector(".breakpoint")
         breakpoint.addEventListener("click", () =>{
-            leftSide.style.left = "-5rem"
+            if (toggle === false){
+                classListAdjustal(leftSide, "ls-backwards", "ls-forwards")
+                toggle = true
+            } else{
+                classListAdjustal(leftSide, "ls-forwards", "ls-backwards")
+                toggle = false
+            }
+        })
+
+        breakpoint.addEventListener("mouseover", () =>{
+            classListAdjustal(breakpoint, "fa-bars", "fa-bars-staggered")
+        })
+
+        breakpoint.addEventListener("mouseout", () =>{
+            classListAdjustal(breakpoint, "fa-bars-staggered", "fa-bars")
         })
         
     } else{
-        console.log("asd");
-        leftSide.style.position = ""
-        leftSide.style.left = ""
+        leftSide.classList.remove("ls-break")
+        leftSide.classList.remove("ls-forwards")
+        leftSide.classList.remove("ls-backwards")
     }
 }
 
+function smallScreen(width){ 
+    if (width.matches){
+        const leftSide = document.querySelector(".left-side")
+        classListAdjustal(leftSide, "ls-backwards", "ls-forwards")
+
+        let toggle = false
+
+        const breakpoint = document.querySelector(".breakpoint")
+        breakpoint.addEventListener("click", () =>{
+            if (toggle === false){
+                classListAdjustal(leftSide, "ls-forwards", "ls-backwards")
+                toggle = true
+            } else{
+                classListAdjustal(leftSide, "ls-backwards", "ls-forwards")
+                toggle = false
+            }
+        })
+
+       
+        const rightSide = document.querySelector(".right-side")
+        rightSide.classList.add("rs-break")
+        
+        const channelItem = document.querySelectorAll(".channel-item")
+        channelItem.forEach((element) =>{
+            element.addEventListener("click", channelImgAdjustal)
+        })
+
+        const leftIcon = document.querySelector(".left-icon")
+        leftIcon.addEventListener("click", leftIconAdjustal)
+
+    } else{
+        const rightSide = document.querySelector(".right-side")
+        rightSide.classList.remove("rs-break")
+      
+        const channelItem = document.querySelectorAll(".channel-item")
+        channelItem.forEach((element) =>{
+            element.removeEventListener("click", channelImgAdjustal)
+        })
+
+        const leftIcon = document.querySelector(".left-icon")
+        leftIcon.removeEventListener("click", leftIconAdjustal)
+
+        const userlist = document.querySelector(".user-list")
+        userlist.classList.remove("users-active")
+    }
+}
+
+function channelImgAdjustal(){
+    const userlist = document.querySelector(".user-list")
+    userlist.classList.add("users-active")
+}
+
+function leftIconAdjustal(){
+    const userlist = document.querySelector(".user-list")
+    userlist.classList.remove("users-active")
+}

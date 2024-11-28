@@ -1,13 +1,11 @@
 import { emojiRandomizer } from "./emoji-randomizer.js"
 
-
 export function channelMiddleAdjustal(){
-   
     const midContentInformation = 
         `
         <div class="introduction-parent">
             <div class="introduction">
-                <img src="./sleeping.png" alt="">
+                <img src="./sleeping.png" alt="sleeping" class="introduction-img">
                 <h1>Nothing new to see...</h1>
                 <h4>zZzZzZ</h4>
             </div>
@@ -19,7 +17,7 @@ export function channelMiddleAdjustal(){
         `
         <div class="container middle-content">
                 <div class="container middle-text" id="chat">
-                    
+                   
                 </div>
 
                <div class="middle-input-parent">
