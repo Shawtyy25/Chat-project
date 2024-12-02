@@ -909,6 +909,9 @@ body{
 .middle-text{
     padding: .5rem;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .middle-text p{
@@ -961,10 +964,29 @@ body{
     margin-left: 15px;
 }
 
+.msg-div-sender{
+    font-weight: bold;
+    font-size: larger;
+}
+
+.loggedInUser{
+    color: greenyellow;
+    text-align: center;
+}
+
+.loggedOutUser{
+    color: red;
+    text-align: center;
+}
+
 .send-msg-emoji{
     color: rgb(243, 243, 243);
     font-size: 1.3rem;
     cursor: pointer;
+}
+
+.send-msg-emoji:active{
+    scale: .98;
 }
 
 .input-down{
@@ -1022,7 +1044,8 @@ body{
 .bk-icon{
     width: 5rem;
     height: 100%;
-    background: var(--channel-bg-light);
+    background: var(--top-bg-color-dark);
+    color: var(--top-color-dark);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1030,7 +1053,7 @@ body{
 
 .top{
     height: var(--top-section-height);
-    background: var(--channel-bg-light);
+    background: var(--top-bg-color-dark);
     display: flex;
     justify-content: space-between;
 }
@@ -1052,7 +1075,7 @@ body{
 }
 
 .profile, .channel-info{
-    background-color: var(--channel-bg-light);
+    background-color: var(--channel-bg-dark);
 }
 
 .prvtUserDiv {

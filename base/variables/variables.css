@@ -1,18 +1,17 @@
-/*Login-Page színek*/
-:root{
-    --login-box: rgb(66, 66, 66);
-    --login-button: rgb(66, 113, 139);
-}
-
 *{margin: 0; padding: 0; box-sizing: border-box;}
 
 :root{
     --main-bg-color-dark: rgb(57, 57, 57);
     --main-bg-color-light: rgb(228, 228, 228);
     --main-color-light: black;
-    --main-color-dark: white;
+    --main-color-dark: rgb(235, 232, 232);
 
     --left-side-width: 5rem;
+
+    --top-bg-color-dark: rgb(28, 28, 28);
+    --top-color-dark: rgb(219, 219, 219);
+    --top-bg-color-light: rgb(133, 133, 133);
+    --top-color-light: black;
 
     --side-bg-color-dark: rgb(34, 34, 34);
     --side-bg-color-light: rgb(192, 192, 192);
@@ -51,6 +50,9 @@
     --button-hover-dark: #8795ff;
     --theme-selector-light: #fff;
     --theme-selector-dark: #242424;
+
+    --login-box: rgb(66, 66, 66);
+    --login-button: rgb(66, 113, 139);
 }
 
 .active-bk{

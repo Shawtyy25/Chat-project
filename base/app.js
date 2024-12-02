@@ -16,10 +16,13 @@ import { checkFriendRequest } from "./scripts/addFriendScripts/add-friends.js";
 import { friendAlerts } from "./scripts/addFriendScripts/alert-button.js";
 import { friendsDivAppend } from "./scripts/adding-friends.js";
 import { friendsTab } from "./scripts/addFriendScripts/friends-tab.js";
-// import { appearanceChecker } from "./scripts/appearance-mode.js" 
+import { appearanceChecker } from "./scripts/appearance-mode.js" 
 import { appearanceButton } from "./scripts/appearance-button.js";
 import { switchSettingsTab } from "./scripts/switch-settings-tab.js";
 import { userlistAdjustal } from "./scripts/userlist-adjustal.js";
+
+
+appearanceChecker()
 
 const channels = document.querySelector(".channels")
 var src = "./sleeping.png"
@@ -93,6 +96,5 @@ login.addEventListener('click', () => {
 
 })
 
-// appearanceChecker()
 
-/* responsibility() */
+responsibility()

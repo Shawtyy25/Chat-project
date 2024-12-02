@@ -33,7 +33,7 @@ export function channelMiddleAdjustal(){
                             
                                 
                             
-                            <input type="text" id="chatbox">
+                            <input type="text" id="chatbox" placeholder="Send a message...">
                         </div>
                         <div class="middle-input-emoji">
                             <i class="fa-solid fa-paper-plane send-msg-emoji" id="send-msg"></i>
@@ -122,6 +122,12 @@ export function channelMiddleAdjustal(){
 
                         middleText.classList.remove("op-hidden")
                         middleText.classList.add("op-active")
+
+                        const keyboard = document.querySelector(".fa-keyboard")
+                        const chatbox = document.querySelector("#chatbox")
+                        keyboard.addEventListener("click", () =>{
+                            chatbox.focus()
+                        })
                     })
                     toggle = true
                 })
