@@ -6,7 +6,7 @@ function senderSide(data) {
     const prvtUserDiv = document.querySelector('.prvtUserDiv')
     const middle = document.querySelector('.middle-text')
 
-    message.innerText = `${data.sender}[To: ${data.receiver}]: ${data.msg}`
+    message.innerHTML = `${data.sender} [To: ${data.receiver}]: <br> ${data.msg}`
 
     chat.append(message)
     prvtUserDiv.classList.add('hidden')
