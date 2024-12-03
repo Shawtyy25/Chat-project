@@ -798,8 +798,6 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    scrollbar-color: rgb(150, 150, 150) transparent;
-    scrollbar-width: .5rem;
     scroll-behavior: smooth;
 }
 
