@@ -9,16 +9,6 @@
     padding: 0;
 }
 
-::-webkit-scrollbar{
-    background-color: transparent;
-    width: .5rem;
-}
-
-::-webkit-scrollbar-thumb{
-    background-color: rgb(150, 150, 150);
-    border-radius: .3rem;
-}
-
 body {
     font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
     transition: background-color 0.5s, color 0.5s;
@@ -27,7 +17,8 @@ body {
 .wrapper {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
+    z-index: 70000;
     top: 0;
     left: 0;
     display: flex;
@@ -53,9 +44,6 @@ body {
 
 
 
-main {
-    display: none;
-}
 
 .login {
     background-color: var(--login-box-light);
@@ -475,176 +463,67 @@ body{
     position: relative;
 }
 
-.switch{
+.switch {
     position: relative;
     display: inline-block;
-    cursor: pointer;    
-    width: 90px;
+    width: 60px;
     height: 34px;
-    border-radius: 34px;
-    background: rgb(55, 165, 243);
-    overflow: hidden;
-    scale: 1;
-    box-shadow: 0px 0px 5px rgb(63, 63, 63) inset;
 }
-
-.slider{
+  
+  /* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+  /* The slider */
+.slider {
     position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
     height: 26px;
     width: 26px;
     left: 4px;
-    top: 4px;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-.switch .cloud-1{
-    position: absolute;
-    top: 4px;
-    left: 25px;
-    width: 15px;
-    height: 15px;
-}
-
-.switch .cloud-2{
-    position: absolute;
-    top: 10px;
-    left: 30px;
-    width: 25px;
-    height: 25px;
-    opacity: .7;
-}
-
-.switch .cloud-3{
-    position: absolute;
-    top: 1px;
-    left: 55px;
-    width: 30px;
-    height: 30px;
-    opacity: .9;
-}
-
-.siwtch .cloud{
-    object-fit: cover;
-    transition: .4s;
-}
-
-.switch .star-1{
-    top: 10px;
-    left: 20px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-2{
-    top: 10px;
-    left: 30px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-3{
-    top: 5px;
-    left: 50px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-4{
-    top: 2px;
-    left: 40px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-5{
-    top: 12px;
-    left: 10px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-6{
-    top: 4px;
-    left: 12px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-7{
-    top: 10px;
-    left: 35px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-8{
-    top: 4px;
-    left: 23px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-9{
-    top: 14px;
-    left: 40px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star-10{
-    top: 5px;
-    left: 50px;
-    width: 2px;
-    height: 2px;
-}
-
-.switch .star{
+    bottom: 4px;
     background-color: white;
-    position: absolute;
-    border-radius: 100%;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
-
-.switch .hill-1{
-    background: linear-gradient(90deg,rgb(10, 10, 16), rgb(28, 36, 79));
-    top: 20px;
-    left: -7px;
-    width: 40px;
-    height: 40px;
+  
+input:checked + .slider {
+    background-color: #2196F3;
 }
-
-.switch .hill-2{
-    background: rgb(0, 156, 0);
-    top: 20px;
-    right: -7px;
-    width: 35px;
-    height: 35px;
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
 }
-
-.switch .hill{
-    position: absolute;
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+  
+  /* Rounded sliders */
+.slider {
+    border-radius: 34px;
+}
+  
+.slider:before {
     border-radius: 50%;
 }
-
-.switch .circle-1{
-    top: 0px;
-    left: 20px;
-}
-
-.switch .circle-2{
-    top: 0px;
-    left: 45px;
-}
-
-.switch .circle{
-    position: absolute;
-    border-radius: 50%;
-    background-color: transparent;
-    border-right: 1px solid rgb(184, 184, 184);
-    width: 35px;
-    height: 35px;
-}
-
 
 .left-side{
     height: 100%;
@@ -774,13 +653,20 @@ body{
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: rgb(182, 177, 201);
-    justify-content: space-around;
+}
+
+.profile-settings-content{
+    display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 .exit{
     position: absolute;
+    cursor: pointer;
+    z-index: 300;
     right: 2rem;
     top: 2rem;
     font-size: 1.5rem;
@@ -912,6 +798,19 @@ body{
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    scrollbar-color: rgb(150, 150, 150) transparent;
+    scrollbar-width: .5rem;
+    scroll-behavior: smooth;
+}
+
+.middle-text::-webkit-scrollbar{
+    background-color: transparent;
+    width: .5rem;
+}
+
+.middle-text::-webkit-scrollbar-thumb{
+    background-color: rgb(150, 150, 150);
+    border-radius: .3rem;
 }
 
 .middle-text p{
@@ -1004,27 +903,23 @@ body{
     cursor: pointer;
 }
 
-.users-div p:hover{
+.right-side.side-dark p:hover{
     background: var(--user-bg-color-dark-hover);
+}
+
+.right-side.side-light P:hover{
+    background: var(--user-bg-color-light-hover);
 }
 
 #logout{
     cursor: pointer;
     border: 0;
     padding: .5rem 1rem;
-    background: var(--logout-bg-color-dark);
     text-transform: uppercase;
     letter-spacing: 2px;
-    box-shadow: 0px 0px 5px var(--box-shadow-dark) inset;
-    color: var(--logout-color-dark);
-}
-
-#logout:hover{
-    background: var(--logout-bg-color-dark-hover);
 }
 
 .introduction-parent{
-    background-color: var(--main-bg-color-dark);
     position: absolute;
     z-index: 2000;
     left: var(--left-side-width);
@@ -1044,8 +939,6 @@ body{
 .bk-icon{
     width: 5rem;
     height: 100%;
-    background: var(--top-bg-color-dark);
-    color: var(--top-color-dark);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1053,7 +946,6 @@ body{
 
 .top{
     height: var(--top-section-height);
-    background: var(--top-bg-color-dark);
     display: flex;
     justify-content: space-between;
 }
@@ -1062,20 +954,6 @@ body{
     cursor: pointer;
     z-index: -1;
     font-size: 1.5rem;
-}
-
-.left-side, .right-side, .introduction, .middle-input-parent > *, #chatbox{
-    background-color: var(--side-bg-color-dark);
-    color: var(--side-color-dark);
-}
-
-.middle{
-    background-color: var(--main-bg-color-dark);
-    color: var(--main-color-dark);
-}
-
-.profile, .channel-info{
-    background-color: var(--channel-bg-dark);
 }
 
 .prvtUserDiv {

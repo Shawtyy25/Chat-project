@@ -67,24 +67,24 @@
     display: none;
 }
 
-.dark-theme{
+.main-dark{
     background: var(--main-bg-color-dark);
     color: var(--main-color-dark);
 }
 
-.light-theme{
+.main-light{
     background: var(--main-bg-color-light);
     color: var(--main-color-light);
 }
 
 .side-dark{
     background: var(--side-bg-color-dark);
-    color: var(--side-color-dark);
+    color: var(--side-color-dark) !important;
 }
 
 .side-light{
     background: var(--side-bg-color-light);
-    color: var(--side-color-light);
+    color: var(--side-color-light) !important;
 }
 
 .channel-dark{
@@ -93,6 +93,36 @@
 
 .channel-light{
     background: var(--channel-bg-light);
+}
+
+.top-dark{
+    background: var(--top-bg-color-dark);
+    color: var(--top-color-dark);
+}
+
+.top-light{
+    background: var(--top-bg-color-light);
+    color: var(--top-color-light);
+}
+
+.logout-dark{
+    background: var(--logout-bg-color-dark);
+    color: var(--logout-color-dark);
+    box-shadow: 0px 0px 5px var(--box-shadow-dark) inset;
+}
+
+.logout-dark:hover{
+    background: var(--logout-bg-color-dark-hover);
+}
+
+.logout-light{
+    background: var(--logout-bg-color-light);
+    color: var(--logout-color-light);
+    box-shadow: 0px 0px 5px var(--box-shadow-light) inset;
+}
+
+.logout-light:hover{
+    background: var(--logout-bg-color-light-hover);
 }
 
 .container{

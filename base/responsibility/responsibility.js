@@ -8,6 +8,19 @@ export function responsibility(){
     const media800px = matchMedia("(max-width: 800px)")
     smallScreen(media800px)
     media800px.addEventListener("change", smallScreen)
+
+    userAdjustal(media800px)
+    media800px.addEventListener("change", userAdjustal)
+}
+
+function userAdjustal(width){
+    const chat = document.querySelector("#chat")
+    if (width.matches && chat.classList.contains("op-active")){
+        channelImgAdjustal()
+    } else{
+        const rightSide = document.querySelector(".right-side")
+        rightSide.classList.remove("rs-active")
+    }
 }
 
 function mediumScreen(width){

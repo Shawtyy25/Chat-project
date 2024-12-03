@@ -17,12 +17,12 @@ import { friendAlerts } from "./scripts/addFriendScripts/alert-button.js";
 import { friendsDivAppend } from "./scripts/adding-friends.js";
 import { friendsTab } from "./scripts/addFriendScripts/friends-tab.js";
 import { appearanceChecker } from "./scripts/appearance-mode.js" 
-import { appearanceButton } from "./scripts/appearance-button.js";
+// import { appearanceButton } from "./scripts/appearance-button.js";
 import { switchSettingsTab } from "./scripts/switch-settings-tab.js";
 import { userlistAdjustal } from "./scripts/userlist-adjustal.js";
 
 
-appearanceChecker()
+
 
 const channels = document.querySelector(".channels")
 var src = "./sleeping.png"
@@ -36,7 +36,7 @@ const channelText = document.querySelectorAll(".channel-text")
 
 let socket;
 
-Themes();
+
 
 const login = document.getElementById('login');
 const user = document.getElementById('user');
@@ -50,9 +50,11 @@ listSelect(channelImg, channelNames, channelText, channelInfo)
 channelImgEvent()
 
 profileSettingsAdjustal()
-appearanceButton()
+// appearanceButton()
 
 channelMiddleAdjustal()
+
+
 
 hidePrvtDiv()
 
@@ -96,5 +98,6 @@ login.addEventListener('click', () => {
 
 })
 
-
+Themes();
+appearanceChecker()
 responsibility()

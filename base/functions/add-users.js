@@ -6,6 +6,7 @@ function addOwnUser(profiles, data) {
 
     ownUser.id = profiles.ownSocket
     ownUser.classList.add('own')
+    ownUser.classList.add("users")
     ownUser.innerText = data.user
     /* userIcon.classList.add('fa-regular')
     userIcon.classList.add('fa-circle-user') */
@@ -21,7 +22,8 @@ function addUsers(data) {
    /*  const userDiv = document.createElement('div') */
     const user = document.createElement('p')
     /* const userIcon = document.createElement('i')
- */
+ */ 
+    user.classList.add("users")
     user.innerText = data.user
     /* userIcon.classList.add('fa-regular')
     userIcon.classList.add('fa-circle-user') */
