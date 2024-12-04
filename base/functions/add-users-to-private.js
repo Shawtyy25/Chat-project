@@ -15,6 +15,8 @@ function senderSide(data) {
     prvtMsg.appendChild(receiver)
     prvtMsg.appendChild(message)
 
+    prvtMsg.classList.add('prv-msg-div')
+
     chat.append(prvtMsg)
     prvtUserDiv.classList.add('hidden')
     prvtUserDiv.classList.remove('active-fx')
@@ -39,6 +41,8 @@ function receiverSide(data) {
     
     prvtMsg.appendChild(sender)
     prvtMsg.appendChild(message)
+    
+    prvtMsg.classList.add('prv-msg-div')
 
     chat.append(prvtMsg)
     prvtUserDiv.classList.remove('active-fx')
