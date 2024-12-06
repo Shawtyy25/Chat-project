@@ -5,10 +5,19 @@ function senderSide(data) {
     const chatbox  = document.getElementById('chatbox')
     const prvtUserDiv = document.querySelector('.prvtUserDiv')
     const middle = document.querySelector('.middle-text')
+    const receiver = document.createElement('div')
+    const prvtMsg = document.createElement('div')
 
-    message.innerHTML = `${data.sender} [To: ${data.receiver}]: <br> ${data.msg}`
+    receiver.innerText = `To: ${data.receiver}`
 
-    chat.append(message)
+    message.innerText = `${data.msg}`
+
+    prvtMsg.appendChild(receiver)
+    prvtMsg.appendChild(message)
+
+    prvtMsg.classList.add('prv-msg-div')
+
+    chat.append(prvtMsg)
     prvtUserDiv.classList.add('hidden')
     prvtUserDiv.classList.remove('active-fx')
     prvtUser.innerText = ''
@@ -23,10 +32,19 @@ function receiverSide(data) {
     const chatbox  = document.getElementById('chatbox')
     const prvtUserDiv = document.querySelector('.prvtUserDiv')
     const middle = document.querySelector('.middle-text')
+    const sender = document.createElement('div')
+    const prvtMsg = document.createElement('div')
 
-    message.innerText = `[From: ${data.sender}]: ${data.msg}`
+    sender.innerText = `From: ${data.sender}`
+    message.innerText = `${data.msg}`
 
-    chat.append(message)
+    
+    prvtMsg.appendChild(sender)
+    prvtMsg.appendChild(message)
+    
+    prvtMsg.classList.add('prv-msg-div')
+
+    chat.append(prvtMsg)
     prvtUserDiv.classList.remove('active-fx')
     prvtUser.innerText = ''
     prvtUser.innerText = ''
