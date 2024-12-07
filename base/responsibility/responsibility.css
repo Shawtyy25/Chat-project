@@ -1,3 +1,60 @@
+@media screen and (max-width: 1560px) {
+    .settings{
+        width: 450px !important;
+    }
+
+    .friends-div{
+        width: 350px !important;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .exit{
+        top: 1rem !important;
+        right: 1rem !important;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .profile-settings-content{
+        flex-direction: column !important;
+        overflow-y: scroll !important;
+        gap: 8rem !important;
+    }
+
+    .settings{
+        margin-top: 4rem !important;
+        min-height: 650px !important;
+        width: 650px !important;
+    }
+
+    .friends-div{
+        min-height: 850px !important;
+        margin-bottom: 4rem !important;
+        width: 650px !important;
+    }
+}
+
+@media screen and (max-width: 715px) {
+    .friends-div{
+        width: 450px !important;
+    }
+
+    .settings{
+        width: 450px !important;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .friends-div{
+        width: 350px !important;
+    }
+
+    .settings{
+        width: 350px !important;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .introduction{
         padding: 1rem 8rem !important;

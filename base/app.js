@@ -19,7 +19,6 @@ import { friendsTab } from "./scripts/addFriendScripts/friends-tab.js";
 import { appearanceChecker } from "./scripts/appearance-mode.js" 
 // import { appearanceButton } from "./scripts/appearance-button.js";
 import { switchSettingsTab } from "./scripts/switch-settings-tab.js";
-import { userlistAdjustal } from "./scripts/userlist-adjustal.js";
 
 
 
@@ -64,7 +63,6 @@ friendAlerts()
 
 friendsTab()
 
-userlistAdjustal()
 
 
 user.addEventListener('input', () => {

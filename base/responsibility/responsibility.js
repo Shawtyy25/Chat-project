@@ -1,4 +1,5 @@
 import { classListAdjustal } from "../functions/class-adjustal.js"
+import { userlistAdjustal } from "../scripts/userlist-adjustal.js"
 
 export function responsibility(){
     const media1200px = matchMedia("(max-width: 1200px)")
@@ -17,6 +18,7 @@ function userAdjustal(width){
     const chat = document.querySelector("#chat")
     if (width.matches && chat.classList.contains("op-active")){
         channelImgAdjustal()
+        userlistAdjustal()
     } else{
         const rightSide = document.querySelector(".right-side")
         rightSide.classList.remove("rs-active")
