@@ -57,6 +57,7 @@ body {
     backdrop-filter: blur(10px);
     transition: background-color 0.5s, color 0.5s;
     row-gap: 2rem;
+    
 }
 
 .wrapperDark .login {
@@ -278,6 +279,32 @@ body {
 .wrapperDark .login {
     background-color: var(--login-box-dark);
 }
+
+@media(max-width:600px){
+
+    .wrapperLight ,.wrapperDark{
+        background-image: none;
+    }
+    .wrapper{
+        align-items: start;
+    }
+    .login{
+        flex-direction: column;
+        background:none;
+        opacity: 1;
+    }
+    .theme-selector{
+        top: 8rem;
+        left: -5rem;
+    }
+}
+@media(max-width:400px){
+    .wrapper{
+        max-width: 200px;
+        left: 2rem;
+    }
+
+}
 /* Theme*/
 
 .theme-selector {
@@ -445,6 +472,109 @@ label .moon{
     padding: 0.75rem;
     margin: 0 auto;
 }
+
+/* loadingScreen*/
+.hidden {
+    display: none;
+}
+
+.loadingScreenWrapper {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.progress-bar {
+    width: 400px;
+    height: 20px;
+    border: 2px solid;
+    position: relative;
+    margin-top: 20px;
+    transition: border-color 0.5s, background-color 0.5s;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    transition: width 0.2s ease, background-color 0.5s;
+}
+
+.loading-text {
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.loading-text.show {
+    opacity: 1;
+}
+
+@keyframes fillProgress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.progress-fill.start {
+    animation: fillProgress 1s forwards;
+}
+
+.progress-fill.complete {
+    width: 100%;
+}
+
+/* Dark Theme */
+.loadingScreenWrapper.dark {
+    background-color: black;
+    color: white;
+}
+
+.loadingScreenWrapper.dark .progress-bar {
+    border-color: white;
+    background-color: #333333;
+}
+
+.loadingScreenWrapper.dark .progress-fill {
+    background-color: white;
+}
+
+/* Light Theme */
+.loadingScreenWrapper.light {
+    background-color: rgb(228, 228, 228);;
+    color: black;
+}
+
+.loadingScreenWrapper.light .progress-bar {
+    border-color: black;
+    background-color: #e0e0e0;
+}
+
+.loadingScreenWrapper.light .progress-fill {
+    background-color: black; 
+}
+
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #777;
+}
+
 
 i{
     display: flex;

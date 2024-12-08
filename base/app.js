@@ -19,6 +19,7 @@ import { friendsTab } from "./scripts/addFriendScripts/friends-tab.js";
 import { appearanceChecker } from "./scripts/appearance-mode.js" 
 // import { appearanceButton } from "./scripts/appearance-button.js";
 import { switchSettingsTab } from "./scripts/switch-settings-tab.js";
+import { loadingScreen } from "./scripts/loadingScreen.js";
 
 
 
@@ -76,6 +77,8 @@ login.addEventListener('click', () => {
         socket = io()
         sendValue(socket, user.value)
         getValue(socket)
+
+        loadingScreen(socket)
 
         messageReceiver(socket)
 
