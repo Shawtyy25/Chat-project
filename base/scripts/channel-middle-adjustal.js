@@ -5,7 +5,7 @@ export function channelMiddleAdjustal(){
         `
         <div class="introduction-parent">
             <div class="introduction">
-                <img src="./sleeping.png" alt="sleeping" class="introduction-img">
+                <img src="./img/sleeping.png" alt="sleeping" title="sleeping_guy" class="introduction-img">
                 <h1>Nothing new to see...</h1>
                 <h4>zZzZzZ</h4>
             </div>
@@ -106,7 +106,7 @@ export function channelMiddleAdjustal(){
 
                 middleInputParent.classList.add("input-down")
                 
-
+                
                 
                 rightSide.classList.add("right-side-forwards")
                 rightSide.addEventListener("animationend", () =>{

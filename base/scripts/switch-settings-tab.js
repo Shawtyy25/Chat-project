@@ -60,7 +60,7 @@ function profileSettings(socket) {
                                     </div>
                                     <div class="profile-options">
                                         <div class="pfp">
-                                            <img src="./hide-facebook-profile-picture-notification.jpg" alt="pfp" title="pfp">
+                                            <img src="./img/hide-facebook-profile-picture-notification.jpg" alt="pfp" title="pfp">
                                         </div>
                                         <div class="profile-data">
                                             <div class="username">

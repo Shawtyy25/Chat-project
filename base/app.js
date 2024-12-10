@@ -25,13 +25,13 @@ import { loadingScreen } from "./scripts/loadingScreen.js";
 
 
 const channels = document.querySelector(".channels")
-var src = "./sleeping.png"
+var src = "./img/sleeping.png"
 
 leftSideAppender(channels, "channel-item", "channel-img", src, "channel-info", "channel-text", 1)
 
 const channelInfo = document.querySelectorAll(".channel-info")
 const channelImg = document.querySelectorAll(".channel-img")
-const channelNames = ["1v1 chatroom", "macska", "kutya"]
+const channelNames = ["Test", "Test-2", "Test-3"]
 const channelText = document.querySelectorAll(".channel-text")
 
 let socket;
